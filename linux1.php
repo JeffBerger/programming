@@ -9,6 +9,18 @@
         for the terminal.  The terminal is that black screen with a prompt (like DOS) that you can enter text commands in.  This is the nitty gritty of 
         knowning how to use computers, knowing the terminal.  You can do everything from here and you should know how to if you are going to be in programming, 
         because graphical user interfaces (GUIs) are for BITCHES.</h3>
+    
+    <h2>Case sensitivity</h2>
+    <p>Note that all commands are case sensitive!  Typing Cd will not work when you want to type cd</p>
+
+    <h2>Key commands</h2>
+    <p>In the shell there are special keystrokes that you can use that will do different things.  Let us go through some of them.</p>
+    <p>ctrl-c : this will NOT copy something in the terminal, this will actually forcibly quit the program that you are currently running in that terminal.  Some programs 
+    will not listen (for example you cannot quit out of vi by typing ctrl-c) but it is the equivalent of ctrl-alt-delete and force stopping a program in windows basically.</p>
+    <p>ctrl-u: this clears the line of all text</p>
+    <p>highlight : highlighting in the terminal will automatically copy it to the clipboard.  To paste you can just right click in the terminal and it will paste everything 
+    into the terminal.  Be careful - if you have a endline (return) at the end of your command when you paste a command into the terminal it will immediately execute it.  
+    It is often much safer to type the command yourself.</p>
         
     <h2>Paths</h2>
     <p>A note about system paths.  The root directory is the most basic level of your system and it is designated as "/" , your home directory is your 
@@ -146,7 +158,85 @@
 	user executes is a sudo command so he can do anything.  This means if you become root you can su into any other user.  Doppleganger!  Use the "-" argument 
 	to assume the bash profile and enviroment of that user as well (so if becoming root you should use "su -" or if you are becoming josh "su - josh", it is 
 	optional with other users but you'll want to use the root enviroment if you are becoming root so it should almost always be "su -").</p>
+
+ 	<h2>screen</h2>
+	<p>Screen is a program that opens a virtual terminal in the terminal.  If you are running a program that takes a very very long time you don't want to SSH into 
+	a terminal because after a while the terminal will have a "broken pipe", this is means the connection has been broken somehow - mostly there was just some lag and 
+        this dropped the connection.  Unless you run the process with nohup then you disconnect you will end the program you are running forcibly.  To prevent this you open 
+	and 'attach' to a virtual terminal (called a screen session).  This way you can disconnect from the screen and the virtual terminal (and the processes it is running) 
+	will continue to run.  Then when you log back onto the machine you can reattach the screen session and pick right back up in that terminal.  You should try it out.  To 
+	create a screen session you do "screen -R NAME-OF-SESSION" and you will see a fresh terminal screen, you are now in a screen session.  Now do "ctrl-a" and then "d" for 
+	detatch.  You are now back in the terminal you were in before.  To see what screen sessions are running do "screen --list" and it will list all screen sessions running 
+	on the machine you are on.  Now to reattach a screen session type "screen -r NAME-OF-SESSION", remember things are case sensitive.  Sometimes it is easy to get confused 
+	if you are in a screen session or not, so you should do the "screen --list" command and it will tell you if you are attached in a session or not.  That is basically it, if 
+	you find yourself unsure if this is in screen or opening up screens inside of screens - enjoy the Inception.</p>
+
+	<h2>nohup</h2>
+	<p>Stands for no-hangup (yeah! Old school!).  This means the command you are running will not end if you are disconnected.  "nohup COMMAND".  You can use it to run programs 
+	that are going to go for a while and you don't want it to crash when you disconnect, much like a more limited screen.  Screen is in general more reliable and more powerful 
+	but nohup will work for your needs lots of the time.</p>
+
+	<h2>&</h2>
+	<p>Not actually a command itself but if you append it to the very end of a command it will not output to the screen but instead output to a background file and allow you to go on your merry 
+	way.  Useful for chatty shit.  Great to combine with nohup.</p>
+
+	<h2>whoami</h2>
+	<p>Display what user you currently are.</p>
+
+	<h2>hostname</h2>
+	<p>Displays the name of the machine you are currently on.</p>
+
+	<h2>date</h2>
+	<p>Displays the current date in that machine's timezone.  There are a lot of flags and modifiers that modify the date (you can scroll back and forward through time) and will 
+	specify the output format.  Look that up if you are in need.</p>
+
+	<h2>du</h2>
+	<p>Disk usage, it will tell you the disk usage for your computer and give you a breakdown.</p>
+	<p>flags : -h to put the form in human readable format</p>
+
+	<h2>mkdir</h2>
+	<p>Make Directory.  Real simple, same as adding a folder "mkdir FOLDERNAME".</p>
 	
+	<h2>rmdir</h2>
+	<p>Remove directory.  The directory has to be empty for rmdir to work, so if there is something in there you might want to use "rm -r" to get rid of it.  "rmdir FOLDERNAME"</p>
+	
+	<h2>exit</h2>
+	<p>Exit will close your terminal session.  The behavior might not be what you expect.  If you are using a local terminal, it will close the window (or tab).  If you are 
+	switched to another user with su it will exit back to your original user.  If you are in a screen session it will close (not detatch, close and destroy) that screen session.  		If you have SShed into a machine it will close the SSH and bring you to the computer you made the connection from (often you chain SSH commands and go from one machine 
+	to another to another and this will back you out one machine.).</p>
+
+
+	<h2>useradd</h2>
+	<p>Adds a user to the machine.  "useradd NAME".</p>
+
+	<h2>rsync</h2>
+
+	<p>rsync allows you to copy over a lot of files at once. It is similar to scp in that way, but it's more powerful because it allows you to sync up systems recursively and without overwriting new files (with the write options!). So if you want to backup or just copy some files over from one system to another, you can rsync it, and watch the progress as well. And if it gets interrupted, unlike scp, which needs to recopy items it had already copied, rsync checks to see what is already in the area you are copying to, if it matches the ones it is copying over. If any are exactly the same, it skips those (as they are already copied) and continues basically where it left off.  You can always "man rsync" to get the options you want, but  some good options are "artuv".</p>
+
+<p>a for archiving: It  is a quick way of saying you want recursion and want to preserve almost everything </p>
+
+<p>v for verbose</p>
+
+<p>r for recrusive (copying everything in directories, if you are copying directories)</p>
+
+<p>t preserves the time of the file</p>
+
+<p>u update: forces rsync to skip any files which exist on the destination and have a modified time that is newer than  the  source  file. - (so that you don't overwrite things!!!!)</p>
+
+<p>Example usage: "rsync -artuv --progress USERNAME@HOST:FILEPATH . "<p>
+<p>Then if you do "ls" in the current folder it will show all the files you just synched with.</p>
+
+	<h2>passwd</h2>
+	<p>Resets the password for a user, if they have no password set then  you can set it.  "passwd USERNAME".</p>
+
+	<h2>less</h2>
+	<p>Less is a program that lets you move backwards and forwards through a file or screen output (if you do ls in a huge directory it will scroll through the whole thing and 
+	you'll have a pain in the ass to go through it, with less it will let you go through the output slowly). Just use "less FILENAME" and then you can scroll.  Use "q" to quit 
+	the program.  You can use this to great effect with the pipe operator as discussed later.</p>
+
+	<h2>more</h2>
+	<p>Basically the same as less but shittier.  Hence the joke in linux "less is more".</p>
+ 
 	<h2>chmod</h2>
 	<p>The modify permissions comand.  This is super important.  You can set 3 levels of permissions : read, write, execute.  You can have any of these (for example 
 	it is possible to have write permission but not read).  There are seven combinations of permissions:</p>
@@ -172,7 +262,9 @@
 	<p>Used to count stuff, I think it stands for "word count".  "wc FLAGS FILE.txt"</p>
 	<p>-l print the line count, -c print the byte count, -m print the character count, -L print the length of longest line, -w print the word count</p>
 	
-	<h2></h2>
+	<h2>find</h2>
+	<p>This command finds files with the same filename, and other properties.  "find FILEPATH -name FILENAME" is the most basic example, but there are a lot more.  See 
+	<a href="http://www.tecmint.com/35-practical-examples-of-linux-find-command/" target="blank">more here</a>.</p>
 	
      <h2>|</h2>
      <p>This is the pipe command allowing you to join (chain) other commands together, so the output for one becomes the input for another.  This opens the potential 
@@ -186,23 +278,18 @@
      note that the PID of the command you just ran will get picked up as well but that shouldn't matter as the ps aux .... command is done when it returns
       so the PID doesn't match to any process.</p>
 
-     <p>Note that the same method above also works well for other things such as netstat to find out if a process has a lot of open sockets</p>
      
-     <p>Here are some examples of things you can do with special combos.</p>
+	<p>Note that the same method above also works well for other things such as netstat to find out if a process has a lot of open sockets</p>
+	
+	<h3>ls -la | less<h3>
+	<p>What this does is if you have a lot of files in your current directory it will list them all in full long form and then pipe the output to less so you can 
+	scroll through the output.  Handy.</p>
+
+     <p>Here are some more examples of things you can do with special combos.</p>
 
      <p>Count the number of sockets a program is using netstat,grep, and wc</p>
      <p>grep through for filenames of all files which have text that match the criterion</p>
      
-     <h2>Other commands</h2>
-     <p>Here are some other commands that you might want to look up : </p>
-     <p>Unique</p>
-     <p>Select</p>
-     <p>Count</p>
-     <p>Less</p>
-     <p>More</p>
-     <p>Adduser</p>
-     <p>...lots more...</p>
-   
       </div>
 
     </div> <!-- /container -->
