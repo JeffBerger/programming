@@ -36,6 +36,9 @@
 	<p>Hiting tab once will have the shell try and autocomplete what you are typing (folder name, file name, command, doesn't matter).  
 	If you hit tab twice in quick succession it will list your options (all commands starting with mo for instance).  You guys need to 
 	use this always and forever.</p>
+	
+	<h2>*</h2>
+	<p>The asterisk is not really a command, but it is important as the wildcard.  So if you use "*.php" in a command it will act on every file that ends in php. </p>
 
 	<h2>vi/vim</h2>
 	<p>Text editor, type vi FILENAME and it will allow you to edit the file.  If the file does not exist then it will create the file and open it for editing.  
