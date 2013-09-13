@@ -30,9 +30,15 @@
 
 		PICTURE OF GIT CLONE
 
-		<p>Now go into the folder programming and you'll find all the code for our programming site and you can now modify it.  ... PICKUP HERE</p>
+		<p>Now go into the folder programming and you'll find all the code for our programming site and you can now modify it.  There is a readme.md file in there, why don't you open it and append to the file a line that says "YOURNAME has been here".  Notice how I am using a text editor, not vi or a special program.  GIT has put the files from the programming repo locally on your machine.  Literally they are all text files in a folder on your computer and you should go with your favorite text editor and edit the files where they sit on your hard drive, there is no need to go through GIT to do these edits.  For light files like this (heavy ones might be a large C++ or Java program, for those you often want a larger development suite such as Eclipse provides) I usually go with notepad2 (LINK HERE) or sublime text (LINK HERE).  I've been moving over to using sublime lately it is very good, even if it does bother you about the trial period sometimes.  I won't discuss notepad2 or notepad+ because they are pretty self explanatory, open the file with them.  Sublime has some more machinery so I'm going to go over a quick setup.  Both Eclipse and Sublime are cross platform, so you can use them on whatever system you'd like.</p>
+		
+		<hr/>
+		<p>SIDENOTE : Sublime Setup.</p>
+		<hr/>
+  
+        PICTURE OF ME EDITING THE README.MD FILE
 
-		<p>Commit a file</p>
+		<p>With the file edited we need to register with GIT that we are done editing the file and it should record the changes.  This action is called a 'commit' as you are commiting the files to the GIT database.  You are only commiting it to your LOCAL GIT database, you are not contacting the server sitting on GITHUB yet.  This means all your changes are recorded locally and that makes them very fast, and accessed without an internet connection.</p>
 
 		<p>add a file and commit a file</p>
 
