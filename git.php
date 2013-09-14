@@ -22,13 +22,15 @@
 		<p>First order of business is to go to <a href="www.github.com">github</a> and make an account on github.  Put in your email and verify it, there is a github boot camp which 
 		will help you get started.  You need to install your github account locally (yes on your machine, not on your AWS, we'll get to that later.), there are good instructions on there for all operating systems so windows users should not fear.  If you are in linux or mac it will install git so you can access it from the terminal, if you are in windows then it will install a git bash program for you to use.  You also need to follow the instructions to get a ssh key and add it to your account.  Once you have an account we can begin.</p>
 
-		<p>Now we are going to get you some code to work on, open up your terminal / or the git bash depending on your system.  Navigate to the folder that you want to have your code base in.  I put mine in ~/Documents/repos, if you want you can make the folder with mkdir (the bash terminal accepts standard terminal commands like mkdir cd and such).</p>
+		<p>Now we are going to get you some code to work on, open up your terminal / or the git bash depending on your system.  Navigate to the folder that you want to have your code base in.  I put mine in ~/Documents/repos, if you want you can make the folder with mkdir (the bash terminal accepts standard terminal commands like mkdir cd and such).  I will be using the bash terminal and assuming most of you roll windows - if you are on a mac or a linux box you are expected to open a terminal and keep pace!</p>
 
-		PICTURE OF GIT TERMINAL IN THE FOLDER
+		<p>Next we are going to download a code base.  We're actually going to use this site as our code base.  To copy a codebase (called a repository, or a repo), we'll want to do what is called a git clone.  The command is "git clone REPO" where our repo will be git@github.com:JeffreyBerger/programming.git .  This will create a folder called "programming" in your current directory and put the code-base in there.  In the GIT bash on windows you can't ctrl-v or right click to paste you need to hit the insert buttton or in the upper left corner click the icon and go to edit.</p>
 
-		<p>Next we are going to download a code base.  We're actually going to use this site as our code base.  To copy a codebase (called a repository, or a repo), we'll want to do what is called a git clone.  The command is "git clone REPO" where our repo will be git@github.com:JeffreyBerger/programming.git .  This will create a folder called "programming" in your current directory and put the code-base in there.</p>
+		<code>
+			<p>git clone git@github.com:JeffreyBerger/programming.git </p>
+		<code/>
 
-		PICTURE OF GIT CLONE
+		<img src="img/GIT1/git1.png" width="1050"/>
 
 		<p>Now go into the folder programming and you'll find all the code for our programming site and you can now modify it.  There is a readme.md file in there, why don't you open it and append to the file a line that says "YOURNAME has been here".  Notice how I am using a text editor, not vi or a special program.  GIT has put the files from the programming repo locally on your machine.  Literally they are all text files in a folder on your computer and you should go with your favorite text editor and edit the files where they sit on your hard drive, there is no need to go through GIT to do these edits.  For light files like this (heavy ones might be a large C++ or Java program, for those you often want a larger development suite such as Eclipse provides) I usually go with <a href="http://www.flos-freeware.ch/notepad2.html" target="blank">notepad2</a>, <a href="http://notepad-plus-plus.org/">notepad++</a> or sublime text <a href="http://www.sublimetext.com/" target="blank">sublime text</a>.  I've been moving over to using sublime lately it is very good, even if it does bother you about the trial period sometimes.  I won't discuss notepad2 or notepad+ because they are pretty self explanatory, open the file with them.  Sublime has some more machinery so I'm going to go over a quick setup.  Both Eclipse and Sublime are cross platform, so you can use them on whatever system you'd like.</p>
 		
@@ -36,7 +38,9 @@
 		<p>SIDENOTE : Sublime Setup.  The easiest way I've found to setup sublime is to simply go to "Project" and "add folder to project" and choose either your Documents or your repos folder (or whatever folder has your code in it).  You'll see in the left a bar will appear with folders and you can nav now through all of your files and edit them.  There is a lot of power that sublime has and I'm not really knowledgeable in it yet but it is pretty sweet and you might want to start using it.  Since it is cross plat you can have it on whatever systems you own (I've got the exact same setup on my mac and my pc).</p>
 		<hr/>
   
-        PICTURE OF ME EDITING THE README.MD FILE
+        <img src="img/GIT1/git2.png" width="1050"/>
+
+        <img src="img/GIT1/git2b.png" width="1050"/>
 
 		<p>With the file edited we need to register with GIT that we are done editing the file and it should record the changes.  This action is called a 'commit' as you are commiting the files to the GIT database.  You are only commiting it to your LOCAL GIT database, you are not contacting the server sitting on GITHUB yet.  This means all your changes are recorded locally and that makes them very fast, and accessed without an internet connection.  To commit a file you need to run the following command in the git bash (or terminal).  </p>
 
@@ -50,9 +54,9 @@
 			<p>git add YOURNAME.txt</p>
 		</code>
 
-		<p>Now that it is added to GIT control you can run your commit and it will work.  Tada!</p>
+		<p>Note that adding a file does not need a comment, only committing a file.  Now that it is added to GIT control you can run your commit and it will work.  Tada!</p>
 
-		PICTURE OF THE FAILED GIT COMMIT, THE GIT ADD, AND THE SUCCESSFUL GIT COMMIT
+		<img src="img/GIT1/git3.png" width="1050"/>
 
 		<p>We've updated our code on our local machine but the server does not have the changes.  To put these changes on the server we must do what is called a 'push' and make our changes merged with the server.  This is easy, all you need to do is the following command</p>
 
@@ -62,17 +66,15 @@
 
 		<p>NOTE: you need to tell me your github user name so I can add you as a collaborator to this repository or you will have read-only access and not be able to push to the repository!  This tells git to put the updates to the origin remote repository under the branch of master.  We'll describe the master branch stuff next, the origin is set by default when you go into a repository folder as the location that you cloned the repo from.  Once the push is done then you will want to check that it worked, go to github and go the repository and see if your changes have appeared on github, which they should have.  NOTE : if you recieve an error that your code is out of date that is because someone else changed the master code while you were working and you must have the most up to date code.  You should execute a "git pull" to get the latest and then push your changes.  Even if they edited the same file you should be able to have your changes merged with theirs with no problem.  If you have further problems you should email the group and we can peice an answer together or just google it.</p>
 
-		PICTURE OF ME GIT PUSHING
+		<img src="img/GIT1/git4.png" width="1050"/>
 
-		PICTURE OF THE CHANGES ON GITHUB
+		<img src="img/GIT1/git5.png" width="1050"/>
 
 		<p>As I was saying, if someone modified the master branch while you were doing stuff then you'll have a conflict.  Also the master branch is usually just for tested code, not for any willy-nilly code.  So what everyone uses are branches.  Branches are alternative paths of development that can occur in parallel with other changes.  You only care about changes on your own branch, so if we make a branch then we can change code in peace without worrying about code being updated (even if it isn't your code that gets changed a version change might be confusing and unhelpful to your development).  When we are done developing on our branch we will be able to do a merge with the master and blend our changes back in for everyone else to use.  The command to switch branches is the "checkout" command, and the "-b" flag creates a new branch.  Lets make your own personal branch.</p>
 
 		<code>
 			<p>git checkout -b YOURNAME001</p>
 		</code>
-
-		PICTURE OF ME CHECKING OUT A NEW BRANCH
 
 		<p>Now lets add a file, go ahead and make another text file called "MYBRANCH.txt", add it and commit it.  Good.  Now lets push it.</p>
 
@@ -86,15 +88,25 @@
 			<p>git checkout master</p>
 		</code>
 
+		<img src="img/GIT1/git6.png" width="1050"/>
+
 		<p>Notice now that the file you created is actually gone from your repository, it isn't that the terminal is hiding it, if you check in your folder structure the file has been actually removed.  Because the version of the master branch which is up to date does not include the changes in your branch as these changes have not been merged in with the master.  There is a merge command on git but we are going to do the merge using github and the "pull request" feature on it.  This will request the server to update the master branch with the changes from your branch.  Go to Github and go to the repository and change from the master branch to your personal branch.</p>
 
-		PICTURE OF ME ON GITHUB CHANGING BRANCHES
+		<img src="img/GIT1/git7.png" width="1050"/>
 
-		<p>Now you will find there is a button that says "make pull request", this will send a signal that you want to merge your changes with the master (that you are requesting the master to pull your changes into itself and merge).  Go ahead and make a pull request.  You'll see that it will say that this merge can be done automatically, if a merge has conflicts (two people edit the same part of the same file) then it will force you to resolve those conflicts before merge.  It is good practice to have someone else on the team check this over before you merge it but lets just press the merge button.</p>
+		<p>Now you will find there is a button that says "make pull request", this will send a signal that you want to merge your changes with the master (that you are requesting the master to pull your changes into itself and merge).  Go ahead and make a pull request.  You'll see that it will say that this merge can be done automatically, if a merge has conflicts (two people edit the same part of the same file) then it will force you to resolve those conflicts before merge.  It is good practice to have someone else on the team check this over before you merge it but lets just press the merge button and follow along.</p>
 
-		PICTURE OF MAKING THE PULL REQUEST
+		<img src="img/GIT1/git8.png" width="1050"/>
 
-		PICTURE OF THE MERGE BUTTON
+		<img src="img/GIT1/git9.png" width="1050"/>
+
+		<img src="img/GIT1/git10.png" width="1050"/>
+
+		<img src="img/GIT1/git11.png" width="1050"/>
+
+		<p>We can also delete the branch we were just using.  This is just for cleanup so you don't have a billion branches lying around but there isn't a real need to delete your branches, GIT is just happy with thousands of branches so whatever.  Sometimes you don't want to delete the branch and you want to keep working on stuff in parallel which is fine.  Here we're going to delete the branch now that it is merged so go ahead and nuke it.</p>
+
+		<img src="img/GIT1/git12.png" width="1050"/>
 
 		<p>Now lets remove the extra two files from the master.  You can't just delete them on your local machine and expect that git will delete them from the master, you need to run the special git rm command.  So make sure you are in the master branch and up to date.  We make our repository up to date by pulling from it.  This is an easy command</p>
 		<code>
@@ -116,17 +128,19 @@
 		</code>
 		<p>Don't worry about removing these things files, one of the great things with git is that it remembers the changes so if you need to recover anything you can always revert.</p>
 
-		PICTURE OF ME DOING A PULL, A RM, A COMMIT, AND A PUSH
+		<img src="img/GIT1/git13.png" width="1050"/>
 
 		<p>We are all set up with GIT but lets see how we can use this on a website.  Load up your AWS instance and log in and we're going to install git on it.</p>
 		<code>
 			<p>sudo yum install git</p>
 		</code>
 
+		<img src="img/GIT1/git14.png" width="1050"/>
+
 		<p>You'll also need to configure your username and email with GIT after the install</p>
 		<code>
 			<p>git config --global user.name YOUR-GIT-USERNAME</p>
-			<p>git config --global user.emailYOUR-GIT-EMAIL</p>
+			<p>git config --global user.email YOUR-GIT-EMAIL</p>
 		</code>
 
 		<p>You also need to make a SSH key for this user.  For this we'll use the ssh keygen command.</p>
@@ -134,23 +148,37 @@
 			<p>ssh-keygen</p>
 		</code>
 
-		<p>Don't specify a filename (it'll use the system default) and don't specify a password for the SSH file (you can if you want but it is annoying as hell).  Finally we need to add the public key to our account, as the keygen produced a private key (which should never leave our computer) and a public key (which we give to those who we want to authenticate with).  We need to add the public key to our account so first output the public key to the screen so we can copy and paste it.</p>
+		<p>Don't specify a filename (it'll use the system default) and don't specify a password for the SSH file (you can if you want but it is annoying as hell).  Finally we need to add the public key to our account, as the keygen produced a private key (which should never leave our computer) and a public key (which we give to those who we want to authenticate with).</p>
+
+		<img src="img/GIT1/git15b.png" width="1050"/>
+
+		<p>We need to add the public key to our account so first output the public key to the screen so we can copy and paste it.  This command will output the ssh public key to the terminal so you can highlight the whole thing and paste it into your account settings on Github.</p>
 
 		<code>
 			<p>cat ~/.ssh/id_rsa.pub</p>
 		</code>
 
-		<p>This outputs the ssh public key to the terminal, now you can copy it and go to your account settings and ssh keys and add it by pasting it into the box on the webpage.</p>
+		<img src="img/GIT1/git16.png" width="1050"/>
 
-		PICTURE OF ME SSH KEY GENNING AND CATTING THE ID
+		<p>Go to your account settings (upper right corner) and ssh keys (left nav bar) and add it by pasting it into the box on the webpage.</p>
 
-		PICTURE OF ME ADDING TO THE SSH KEY
+		<img src="img/GIT1/git17.png" width="1050"/>
 
-		<p>We're going to make the repo our site, so go to the folder that is hosting your page and do a git clone of our repository the same as before.</p>
+		<p>We're going to make the repo our site, so go to the folder that is hosting your page and do a git clone of our repository the same as before.  You might see that you do not have access to write to this folder, well no matter we'll sudo this.  And then we run into a strange issue - yes?</p>
 
-		PICTURE OF ME IN AWS CLONING THE REP
+		<img src="img/GIT1/git18.png" width="1050"/>
 
-		<p>Now just go to your browser and go to the YOUR-DNS/programming and you should be able to see a clone of the entire programming website with the tutorials and everything.  Oh yeah.  So now you see that we could have a bunch of different people working on code in their branches, when it works they merge it into the master and then we do a git pull to update the website.  We could also modify a file on the server and do a commit and a push from our AWS instance if we want to update something from that side too (The git swings both ways!).  It is possible for your website to actually listen for an update from Github and automatically pull as well, but that is a more advanced function.  Also you don't have to display the master branch as your website, if you want you could use git checkout anotherbranch to host a branch other than master as your site.  You should play around with this but there is a lot of functionality you can get out of this setup especially with multiple people.  You should check out this LINK TO GITPRO BOOK if you want to learn a bunch more about git because it is pretty deep.</p>
+		<p>Let us ponder for a second what is happening.  What you did when you put the ssh key there is that you gave the ssh key to the current user, ec2-user.  When you sudo you basically become root for that command, but root does not have the ssh key, so when you do a sudo command that uses the ssh protocol it doesn't know where the ssh key is.  We can use a command to specify exactly what ssh key it should be using, but instead what is perhaps more reasonable is to let our user have access to the folder that our website is in.  So we will use a chown command on the website folder.</p>
+
+		<code>
+			<p>sudo chown ec2-user /home/website</p>
+		</code>
+
+		<p>Now we can try the git clone command (without sudo) again.  It might ask you if you want to add this host to your known hosts file and continue, just say yes.</p>
+
+		<img src="img/GIT1/git19.png" width="1050"/>
+
+		<p>Now just go to your browser and go to the YOUR-DNS/programming and you should be able to see a clone of the entire programming website with the tutorials and everything (If you can't access it all from the web remember you need to start apache or you won't serve any HTTP requests!!  Use the script in init.d to start it and if you don't remember check the apache tutorial again).  Oh yeah.  So now you see that we could have a bunch of different people working on code in their branches, when it works they merge it into the master and then we do a git pull to update the website.  We could also modify a file on the server and do a commit and a push from our AWS instance if we want to update something from that side too (The git swings both ways!).  It is possible for your website to actually listen for an update from Github and automatically pull as well, but that is a more advanced function.  Also you don't have to display the master branch as your website, if you want you could use git checkout anotherbranch to host a branch other than master as your site.  You should play around with this but there is a lot of functionality you can get out of this setup especially with multiple people.  You should check out this LINK TO GITPRO BOOK if you want to learn a bunch more about git because it is pretty deep.</p>
 
       </div>
 
