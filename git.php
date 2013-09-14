@@ -94,13 +94,15 @@
 
 		<img src="img/GIT1/git7.png" width="1050"/>
 
-		<p>Now you will find there is a button that says "make pull request", this will send a signal that you want to merge your changes with the master (that you are requesting the master to pull your changes into itself and merge).  Go ahead and make a pull request.  You'll see that it will say that this merge can be done automatically, if a merge has conflicts (two people edit the same part of the same file) then it will force you to resolve those conflicts before merge.  It is good practice to have someone else on the team check this over before you merge it but lets just press the merge button and follow along.</p>
+		<p>Now you will find there is a button that says "make pull request", this will send a signal that you want to merge your changes with the master (that you are requesting the master to pull your changes into itself and merge).  Go ahead and make a pull request.  You'll see that it will say that this merge can be done automatically, if a merge has conflicts (two people edit the same part of the same file) then it will force you to resolve those conflicts before merge.  You'll see that at the top we don't have to merge from our branch to the master, we can merge into another branch.  Additionally it will tell you what changes have been made between your version and the version you are merginng into.  We'll want to send the pull request, you can put whatever note in that you want.</p>
 
 		<img src="img/GIT1/git8.png" width="1050"/>
 
+		<p>It is good practice to have someone else on the team check this over before you merge it but lets just press the merge button and move on.  You see that our request is open still and we can make whatever comments we'd like.</p>
+
 		<img src="img/GIT1/git9.png" width="1050"/>
 
-		<img src="img/GIT1/git10.png" width="1050"/>
+		<p>It'll ask us to confirm the merge and let us put another comment in, but it automatically generates this one which is usually sufficient.  Confirm the merge and all the changes you made in your branch (namely adding that one file) will now occur on the master branch.</p>
 
 		<img src="img/GIT1/git11.png" width="1050"/>
 
@@ -179,6 +181,8 @@
 		<img src="img/GIT1/git19.png" width="1050"/>
 
 		<p>Now just go to your browser and go to the YOUR-DNS/programming and you should be able to see a clone of the entire programming website with the tutorials and everything (If you can't access it all from the web remember you need to start apache or you won't serve any HTTP requests!!  Use the script in init.d to start it and if you don't remember check the apache tutorial again).  Oh yeah.  So now you see that we could have a bunch of different people working on code in their branches, when it works they merge it into the master and then we do a git pull to update the website.  We could also modify a file on the server and do a commit and a push from our AWS instance if we want to update something from that side too (The git swings both ways!).  It is possible for your website to actually listen for an update from Github and automatically pull as well, but that is a more advanced function.  Also you don't have to display the master branch as your website, if you want you could use git checkout anotherbranch to host a branch other than master as your site.  You should play around with this but there is a lot of functionality you can get out of this setup especially with multiple people.  You should check out this <a href="http://git-scm.com/book" target="blank">book on git</a> if you want to learn a bunch more about git because it is pretty deep.</p>
+
+		<p>This also means that if you want to put a tutorial up yourself on this site you can, or if you see a typo and want to modify it or add comments at the bottom of the tutorial.  All the code is open to your edits, just follow the same folder and file structure that I am doing now so things can be consistant.  Make a branch, build your tutorial (you can view it on your site the same way you pulled the tutorials here, just instead of checking out the master branch check out your branch), and then when you like it merge the whole thing on Github.</p>
 
       </div>
 
