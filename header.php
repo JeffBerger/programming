@@ -37,6 +37,7 @@ $HTML=<<<HTML
                 <li><a href="aws1.php">Setting up AWS</a></li>
                 <li><a href="apache1.php">Turning your AWS into a website with Apache</a></li>
                 <li><a href="linux1.php">Linux commands and VIM</a></li>
+                <li><a href="git1.php">GIT and GITHUB</a></li>
               </ul>
             </li>
             <li class="dropdown">
