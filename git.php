@@ -90,7 +90,7 @@
 
 		<img src="img/GIT1/git6.png" width="1050"/>
 
-		<p>Notice now that the file you created is actually gone from your repository, it isn't that the terminal is hiding it, if you check in your folder structure the file has been actually removed.  Because the version of the master branch which is up to date does not include the changes in your branch as these changes have not been merged in with the master.  There is a merge command on git but we are going to do the merge using github and the "pull request" feature on it.  This will request the server to update the master branch with the changes from your branch.  Go to Github and go to the repository and change from the master branch to your personal branch.</p>
+		<p>Go ahead and do an ls of your folder, notice now that the file you created is actually gone from your repository, it isn't that the terminal is hiding it, if you check in your folder structure (windows explorer, finder, whatever) the file has been actually removed.  Because the version of the master branch which is up to date does not include the changes in your branch as these changes have not been merged in with the master.  There is a merge command on git but we are going to do the merge using github and the "pull request" feature on it.  This will request the server to update the master branch with the changes from your branch.  Go to Github and go to the repository and change from the master branch to your personal branch.</p>
 
 		<img src="img/GIT1/git7.png" width="1050"/>
 
