@@ -28,7 +28,7 @@
 
 		<code>
 			<p>git clone git@github.com:JeffreyBerger/programming.git </p>
-		<code/>
+		</code>
 
 		<img src="img/GIT1/git1.png" width="1050"/>
 
@@ -178,7 +178,7 @@
 
 		<img src="img/GIT1/git19.png" width="1050"/>
 
-		<p>Now just go to your browser and go to the YOUR-DNS/programming and you should be able to see a clone of the entire programming website with the tutorials and everything (If you can't access it all from the web remember you need to start apache or you won't serve any HTTP requests!!  Use the script in init.d to start it and if you don't remember check the apache tutorial again).  Oh yeah.  So now you see that we could have a bunch of different people working on code in their branches, when it works they merge it into the master and then we do a git pull to update the website.  We could also modify a file on the server and do a commit and a push from our AWS instance if we want to update something from that side too (The git swings both ways!).  It is possible for your website to actually listen for an update from Github and automatically pull as well, but that is a more advanced function.  Also you don't have to display the master branch as your website, if you want you could use git checkout anotherbranch to host a branch other than master as your site.  You should play around with this but there is a lot of functionality you can get out of this setup especially with multiple people.  You should check out this LINK TO GITPRO BOOK if you want to learn a bunch more about git because it is pretty deep.</p>
+		<p>Now just go to your browser and go to the YOUR-DNS/programming and you should be able to see a clone of the entire programming website with the tutorials and everything (If you can't access it all from the web remember you need to start apache or you won't serve any HTTP requests!!  Use the script in init.d to start it and if you don't remember check the apache tutorial again).  Oh yeah.  So now you see that we could have a bunch of different people working on code in their branches, when it works they merge it into the master and then we do a git pull to update the website.  We could also modify a file on the server and do a commit and a push from our AWS instance if we want to update something from that side too (The git swings both ways!).  It is possible for your website to actually listen for an update from Github and automatically pull as well, but that is a more advanced function.  Also you don't have to display the master branch as your website, if you want you could use git checkout anotherbranch to host a branch other than master as your site.  You should play around with this but there is a lot of functionality you can get out of this setup especially with multiple people.  You should check out this <a href="http://git-scm.com/book" target="blank">book on git</a> if you want to learn a bunch more about git because it is pretty deep.</p>
 
       </div>
 
