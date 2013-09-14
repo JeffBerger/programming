@@ -8,13 +8,13 @@
         <h3>Here we'll go over some basic programming things you will likely need to know.  I won't teach you programming languages because there is already a lot of material out there but I'll show you where to go for a lot of it and what things you will need to know.</h3>
         <hr/>
         <h2>New Tutorials</h2>
-        <p>Newest is the tutorial on <a href="git1.php">GIT and GITHUB</a> which should be all the tools we need and we can get into actually programming stuff next</p>
+        <p>Newest is the tutorial on <a href="git.php">GIT and GITHUB</a> which should be all the tools we need and we can get into actually programming stuff next</p>
         <p>How to make your server host a website with <a href="apache1.php">apache</a> and some <a href="linux1.php">basic linux commands</a></p>
         <hr/>
         <h2>For people starting</h2>
         <p>You'll probably need to do almost all of the tutorials in some order as they will all interdepend on themselves but there is an order to doing some of these things</p>
         <p>FIRST : you must set up your <a href="aws1.php">AWS server</a> as every tutorial will require you to log into it and use that as your enviroment.</p>
-        <p>Before you can do any website programming you will want to go through the <a href="apache1.php">apache tutorial</a> to make your machine into a web server.  You will also need to have <a href="git1.php">GIT and GITHUB</a> setup to get any code from me, this is essential if you will work together with people on code projects.</p>
+        <p>Before you can do any website programming you will want to go through the <a href="apache1.php">apache tutorial</a> to make your machine into a web server.  You will also need to have <a href="git.php">GIT and GITHUB</a> setup to get any code from me, this is essential if you will work together with people on code projects.</p>
         <p>If you aren't that comfortable with linux then you can go over some <a href="linux1.php">linux commands</a>, but don't worry we go through all the commands we use along the way.</p>
         <p>If you are doing the data tutorials please to the <a href="mysql.php">MySQL</a> one before you do the first <a href="mongo1.php">MongoDB</a> tutorial.</p>
         <hr/>
