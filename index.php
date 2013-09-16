@@ -8,6 +8,7 @@
         <h3>Here we'll go over some basic programming things you will likely need to know.  I won't teach you programming languages because there is already a lot of material out there but I'll show you where to go for a lot of it and what things you will need to know.</h3>
         <hr/>
         <h2>New Tutorials</h2>
+        <p>And another new one on  <a href="emacs1.php">Emacs editor, which is one option to use for editing and making your programs!</a></p>
         <p>Newest is the tutorial on <a href="git.php">GIT and GITHUB</a> which should be all the tools we need and we can get into actually programming stuff next</p>
         <p>How to make your server host a website with <a href="apache1.php">apache</a> and some <a href="linux1.php">basic linux commands</a></p>
         <hr/>
