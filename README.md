@@ -7,4 +7,4 @@ JEFF was here
 
 ALI was here. 
 
-:moon: JD WAS HERE :moon:
+:camel: :camel: :camel: JD WAS HERE :dromedary_camel: :dromedary_camel: :dromedary_camel:
