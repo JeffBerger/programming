@@ -10,3 +10,5 @@ ALI was here.
 :camel: :camel: :camel: JD WAS HERE :dromedary_camel: :dromedary_camel: :dromedary_camel:
 
 Peque was here. PARTY TIME!!!
+
+Josh razed this readme and salted the earth.
