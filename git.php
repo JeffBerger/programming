@@ -22,6 +22,33 @@
 		<p>First order of business is to go to <a href="www.github.com">github</a> and make an account on github.  Put in your email and verify it, there is a github boot camp which 
 		will help you get started.  You need to install your github account locally (yes on your machine, not on your AWS, we'll get to that later.), there are good instructions on there for all operating systems so windows users should not fear.  If you are in linux or mac it will install git so you can access it from the terminal, if you are in windows then it will install a git bash program for you to use.  You also need to follow the instructions to get a ssh key and add it to your account.  Once you have an account we can begin.</p>
 
+		<p>We'll need to do some setup of the installation, this should help you out.  You'll need to configure your username and email with GIT after the install if you haven't already.  All these commands are the same in a git bash terminal on windows or on the normal terminal in AWS.</p>
+		<code>
+			<p>git config --global user.name YOUR-GIT-USERNAME</p>
+			<p>git config --global user.email YOUR-GIT-EMAIL</p>
+		</code>
+
+		<p>You also need to make a SSH key for this user.  For this we'll use the ssh keygen command.</p>
+		<code>
+			<p>ssh-keygen</p>
+		</code>
+
+		<p>Don't specify a filename (it'll use the system default) and don't specify a password for the SSH file (you can if you want but it is annoying as hell).  Finally we need to add the public key to our account, as the keygen produced a private key (which should never leave our computer) and a public key (which we give to those who we want to authenticate with).</p>
+
+		<img src="img/GIT1/git15b.png" width="1050"/>
+
+		<p>We need to add the public key to our account so first output the public key to the screen so we can copy and paste it.  This command will output the ssh public key to the terminal so you can highlight the whole thing and paste it into your account settings on Github.</p>
+
+		<code>
+			<p>cat ~/.ssh/id_rsa.pub</p>
+		</code>
+
+		<img src="img/GIT1/git16.png" width="1050"/>
+
+		<p>Go to your account settings (upper right corner) and ssh keys (left nav bar) and add it by pasting it into the box on the webpage.</p>
+
+		<img src="img/GIT1/git17.png" width="1050"/>
+
 		<p>Now we are going to get you some code to work on, open up your terminal / or the git bash depending on your system.  Navigate to the folder that you want to have your code base in.  I put mine in ~/Documents/repos, if you want you can make the folder with mkdir (the bash terminal accepts standard terminal commands like mkdir cd and such).  I will be using the bash terminal and assuming most of you roll windows - if you are on a mac or a linux box you are expected to open a terminal and keep pace!</p>
 
 		<p>Next we are going to download a code base.  We're actually going to use this site as our code base.  To copy a codebase (called a repository, or a repo), we'll want to do what is called a git clone.  The command is "git clone REPO" where our repo will be git@github.com:JeffreyBerger/programming.git .  This will create a folder called "programming" in your current directory and put the code-base in there.  In the GIT bash on windows you can't ctrl-v or right click to paste you need to hit the insert buttton or in the upper left corner click the icon and go to edit.</p>
@@ -139,7 +166,7 @@
 
 		<img src="img/GIT1/git14.png" width="1050"/>
 
-		<p>You'll also need to configure your username and email with GIT after the install</p>
+		<p>You'll also need to configure your username and email with GIT after the install (If this next part looks familiar it is because it is identical!)</p>
 		<code>
 			<p>git config --global user.name YOUR-GIT-USERNAME</p>
 			<p>git config --global user.email YOUR-GIT-EMAIL</p>
