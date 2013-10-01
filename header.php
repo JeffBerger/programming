@@ -44,6 +44,7 @@ $HTML=<<<HTML
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Frontend<b class="caret"></b></a>
               <ul class="dropdown-menu">
+                <li><a href="html1.php">HTML/CSS/Bootstrap intro</a></li>
               </ul>
             </li>
 			<li class="dropdown">
