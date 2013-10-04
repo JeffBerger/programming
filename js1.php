@@ -107,6 +107,25 @@
 
         <p>An event is ...</p>
 
+        Show various listen-to commands
+
+        show comments
+
+        Show callback functions
+
+        Show objects
+
+        Show objects with functions
+
+        Show how to use a function to create an object template
+
+        Discuss 'this' and 'that'
+
+        Javascript pt3 : AJAX
+
+        Javascript pt2 : Chrome Debugger
+
+        Javascript pt4 : Backbone
                
       </div>
 
