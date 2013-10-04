@@ -7,6 +7,8 @@
   <h1>EMACS tutorial</h1>
   <h3>Emacs is one of the more popular text editors used in programming. I like it because commands are pretty straight forward. Vim is also a very popular one and it is native to linux, thus you don't need to install it, no matter what linux machine you are on! However, emacs is not, so it needs to be installed. Log onto your preferred machine (MAC, AWS, Ubuntu...etc) and issue the command:</h3>
 
+  <h3>Pre-reqs : AWS</h3>
+
   <code>sudo yum install emacs</code>
 
   <h3><p>To open a file named firstfile.txt, you do the following:</p></h3>

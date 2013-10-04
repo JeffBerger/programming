@@ -9,6 +9,8 @@
         for the terminal.  The terminal is that black screen with a prompt (like DOS) that you can enter text commands in.  This is the nitty gritty of 
         knowning how to use computers, knowing the terminal.  You can do everything from here and you should know how to if you are going to be in programming, 
         because graphical user interfaces (GUIs) are for BITCHES.</h3>
+
+        <h3>Pre-reqs : none</h3>
     
     <h2>Case sensitivity</h2>
     <p>Note that all commands are case sensitive!  Typing Cd will not work when you want to type cd</p>

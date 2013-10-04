@@ -6,6 +6,9 @@
       <div class="jumbotron">
         <h1>Turning your AWS server into a website with Apache</h1>
         <h3>Using Apache (httpd) we will turn our AWS server into a webserver to host a basic website.</h3>
+
+        <h3>Pre-reqs : AWS</h3>
+
     
     <p>The way we are going to turn our AWS server into a website is by installing Apache, which is a HTTP server program.  
     What this means is that when someone uses a browser to go to the address (the DNS which points to the machine's IP address) 

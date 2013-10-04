@@ -7,6 +7,8 @@
         <h1>MySQL setup and use</h1>
         <h3>Here we'll install and construct a mysql server from scratch on AWS</h3>
         
+        <h3>Pre-reqs : AWS</h3>
+
         <p>Start up and log into your amazon AWS instance.  Lets start by installing mysql and the mysql server</p>
         <p>sudo yum install mysql</p>
         <p>sudo yum install mysql-server</p>

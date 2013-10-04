@@ -5,9 +5,11 @@
 
       <div class="jumbotron">
         <h1>Javascript pt1</h1>
-        <h3>Here we'll talk about javascript as a programming language</h3>
+        <h3>An introduction to javascript and programming in general</h3>
 
         <h3>Pre-reqs : HTML/CSS</h3>
+
+        <h4>Intro</h4>
 
         <p>Many approaches to javascript tie it heavily to what it does with HTML elements in a webpage.  I'll discuss this a bit but I'd like to more discuss how to use javascript in a general programming manner, as it is a complete programming language.  For me I used it for little doodads in a webpage before I realized how empowered it is, so I'd like you to start off knowing you can program basically anything in just javascript.</p>
 
@@ -26,7 +28,10 @@
 			<p>&lt/html&gt</p>
 		</code>
 
-		<p>Now go to the file and open it in chrome.  Your life will be a lot easier if you just submit and use chrome.  You'll see a window pop up that will say "hello" and won't let you do shit till you dismiss it.  This is an alert and is the most annoying and easy function call to make.  A function call is a way of executing some other piece of code which will perform a task.  We'll make our own functions a bit later.  Lets talk about variables.</p>
+		<p>Now go to the file and open it in chrome.  First, your life will be a lot easier if you just submit and use chrome.  Second, I want you to consider for a moment that we aren't doing any of this on a webserver.  You don't need a webserver for any of this javascript stuff, javascript is executed 'client side', which means your end user executes the javascript code in their browser.  Your web server will send them the javascript code - all of the javascript code - and they will run it on their machine.  So you are just skipping the step where the webserver sends you the file and you are just keeping it on your machine, totally legitimate.  The web browser is the program that will interpret the javascript and run it as a program, also super easy.  It is really nice, and you don't have to deal with logging into a webserver and configuring it so it can accept requests or compile things.  You should remember always that when you make javascript you send the whole code to your end user, which means they can do anything they want with it - dice it up, steal data inside it, or steal the whole code.  Never put sensitive data in your javascript that you wouldn't want the user to get access to because as you'll see in later tutorials a user can get to ANYTHING you give them.  Never trust the user.</p>
+        <p>When you open the file in chrome you'll see a window pop up that will say "hello" and won't let you do shit till you dismiss it.  This is an alert and is the most annoying and easy function call to make.  A function call is a way of executing some other piece of code which will perform a task.  We'll make our own functions a bit later.  Lets talk about variables.</p>
+
+        <h4>Variables, HTML, and JQuery</h4>
 
         <p>Javascript is not "strongly typed", which means when you declare a variable then you don't need to tell it if it is a string, an integer, or a decimal number (called floating point numbers).  All variables are declared like this : </p>
         <code>
@@ -81,6 +86,8 @@
 
         <p>Notice how I now am putting HTML tags in what is being prepended to the output div.  This is because we are putting it into the HMTL div so we need to have HTML formatting.  Without the p tags the browser would simply paste all the text into one long string (go ahead and try it and you'll see what I mean).</p>
 
+        <h4>The Godlike For Loop</h4>
+
         <p>The command "i = i + 1;" is called an incrememnt and it is very common to do this to keep counts so there is a shorthand for it, "i++;".  There is also a decrement and I will let you guess what that is, it goes by "i--;".  This is especially useful if you want to do something multiple times, which is most easily accomplished inside a loop.  There are several different loops, the most common ones are the "while" loop, the "do while" loop, and the lord of all - the "for" loop.  Let us do a for loop right now. A for loop will repeat the code inside of the loop and it takes three parameters.  First, an initializer which it sets when the loop starts.  Second, a test, the loop will continue until that test is no longer true.  Third, an incrementer, which is a command that it will execute every time the loop executes a single iteration.  Let's see one in practice.  Replace what is inside the script tags at the end of your program with the following code:</p>
 
         <code>
@@ -89,9 +96,33 @@
             <p>}</p>
         </code>
 
-        <p>Super easy, now you'll see it will add ten lines of code each of them slightly different.  First we are using the append instead of prepend, this just means new lines are put at the top of the HTML and not at the end of it.  What is happening in the for loop is the loop is creating a variable "i" and setting it to 0.  This is our counter for the for loop, and it will tell us what iteration we are on.  If you imagine that we havea  list of things we want to go through that is 100 elements we don't want to manually go through each, so we make a for loop that will go through 100 things and execute some code on each element.  The way the for loop knows when to stop is the second argument, which says that the for loop should keep going as long as i is less than 10.  As long as i is less than 10 that statement is "true" and the loop will keep going.  Now if we don't make i go up with each iteration we could have a loop that goes on forever and that is a very possible scenario.  So the third argument is a command that is execute each time the loop iterates once, whichi in this case we simply increase i by one.  This means that it will go through the loop 10 times (0-9 is ten times, if you want 1-10 then just start i at 1 and do i&lt11).  For loops are god.  Now let's be a bit more complicated, just output stuff if it is an even number.  For this we need to use an if statement.</p>
+        <p>Super easy, now you'll see it will add ten lines of code each of them slightly different.  First we are using the append instead of prepend, this just means new lines are put at the top of the HTML and not at the end of it.  What is happening in the for loop is the loop is creating a variable "i" and setting it to 0.  This is our counter for the for loop, and it will tell us what iteration we are on.  If you imagine that we havea  list of things we want to go through that is 100 elements we don't want to manually go through each, so we make a for loop that will go through 100 things and execute some code on each element.  The way the for loop knows when to stop is the second argument, which says that the for loop should keep going as long as i is less than 10.  As long as i is less than 10 that statement is "true" and the loop will keep going.  Now if we don't make i go up with each iteration we could have a loop that goes on forever and that is a very possible scenario.  So the third argument is a command that is execute each time the loop iterates once, whichi in this case we simply increase i by one.  This means that it will go through the loop 10 times (0-9 is ten times, if you want 1-10 then just start i at 1 and do i&lt11).  For loops are god.  Let us do a quick detour and discuss an array and how to use it with a for loop that is specialized for them.</p>
 
-        <p>If statements are logical gates which take a statement that they will evaluate and see if the statement is true.  If it is true then it will execute a block of code, if it isn't then it will skip it.  Let us do an example using the modulus operator "%".  This gives you the remainder of division, so 9%4 = 1 because if I divide 9 by 4 I get 2 with a remainder of 1, so the modulus operator returns this remainder.  If we are interested in evens or odds then we want to do modulus of 2.  8 % 2 = 0 because there is no remainder but 9 % 2 = 1 because there is a remainder of 1.  So even numbers will have 0 when modulus of two is evaluated and odd numbers will be 1.  Lets put this into our for loop.</p>
+        <h4>Arrays</h4>
+
+        <p>Lets talk about arrays for a minute.  We can have a variable map to multiple items by putting them in a list called an array.  We can access them by defining the number of the entry we want.</p>
+
+        <code>
+            <p>var tools = ["hammer","anvil","penis"];</p>
+            <p>$("#output").append("&ltp&gtTool 0 " + tools[0] + "&lt/p&gt");</p>
+            <p>$("#output").append("&ltp&gtTool 1 " + tools[1] + "&lt/p&gt");</p>  
+            <p>$("#output").append("&ltp&gtTool 2 " + tools[2] + "&lt/p&gt");</p>  
+        </code>
+
+        <p>Well that works nicely, but it is a bit repetative going through that line over and over.  If we had 50 things it would be ridiculous.  But it sounds like the perfect situation for a for loop right?  Ok here we go.</p>
+
+        <code>
+            <p>var tools = ["hammer","anvil","penis"];</p>
+            <p>for(var i = 0;i&lt3;i++){</p>
+            <p>&nbsp;&nbsp;&nbsp;$("#output").append("&ltp&gtTool " + i + " " + tools[i] + "&lt/p&gt");</p>
+            <p>}</p>
+        </code>
+
+        <p>Ok works great.  Not done yet, there is a special for loop that we can use with an array where we don't even have to specify an iterator or anything, it is called a foreach loop.  We won't go over it though because you'll need to know more about functions before we do, and by then I figure you can look up a foreach loop in javascript if you really want to know. Left as an exercise to the reader, woo!</p>
+
+        <h4>If statements</h4>
+
+        <p>Now let's rewind to before when we were just printing the loop number and get a bit more complicated and just output a line if it is an even number.  For this we need to use an if statement.  If statements are logical gates which take a statement that they will evaluate and see if the statement is true.  If it is true then it will execute a block of code, if it isn't then it will skip it.  Let us do an example using the modulus operator "%".  This gives you the remainder of division, so 9%4 = 1 because if I divide 9 by 4 I get 2 with a remainder of 1, so the modulus operator returns this remainder.  If we are interested in evens or odds then we want to do modulus of 2.  8 % 2 = 0 because there is no remainder but 9 % 2 = 1 because there is a remainder of 1.  So even numbers will have 0 when modulus of two is evaluated and odd numbers will be 1.  Lets put this into our for loop.</p>
 
          <code>
             <p>for(var i = 0;i&lt10;i++){ </p>
@@ -166,6 +197,8 @@
         </code>   
 
         <p>We are using the inline comment and the block comment.  The // comments everything at that point and past in that line (you can have comments at the end of a line to give an explanation to that line of code) and /* comments everything from that point onwards until it reaches */.  Lets talk about functions before we go further.</p>
+
+        <h4>Functions</h4>
 
         <p>A function is simply a block of code that you separate out from other parts of your code that does a specific purpose.  This makes the code more readable and you can use the function in different places, so if you are doing the same thing in multiple places you don't have to repeat typing the same lines of code, just call the function.  The function does not know about any variables that have been declared outside of it, so you need to give it information by passing it variables (this is known as scope).  Functions are very important and it is important that you are comfortable using them.</p>
 
@@ -259,7 +292,9 @@
             <p></p>
         </code>
 
-        <p>Note how 
+        <p>Note how we construct the function in place, this is how we can create an anonymous function for specific events (which we'll see later) and AJAX calls (Javascript lesson 2).  We can declare a function for it and reference it or we can use an anonymous function, both are valid but you should be able to do both and comfortable with seeing either.</p>
+
+        <h4>Input and Events</h4>
 
         <p>Ok enough of the general programming let's get some user input on this bitch.</p>        
 
@@ -285,19 +320,151 @@
 			<p>&lt/html&gt</p>
         </code>
 
-        <p>Go ahead and run it, and you'll see that it won't print anything for the input.  This is because the input is blank.  When you put something into the input box, nothing happens.  This is because nothing in the code tells the HTML to update when the input changes.  It prints what is in the input the first time and then never again.  So we need to listen for an event, and when this event occurs we'll trigger an update.  For this we'll need to deal with an event.</p>
+        <p>Now once again we changed from append to just "html" acting on the output.  What this does is replace all the html inside of our output div with what we give it, so every time we call that it clears the HTML in output and puts new HTML in.  Go ahead and run it, and you'll see that it won't print anything for the input.  This is because the input is blank.  When you put something into the input box, nothing happens.  This is because nothing in the code tells the HTML to update when the input changes.  It prints what is in the input the first time and then never again.  So we need to listen for an event, and when this event occurs we'll trigger an update.  For this we'll need to deal with an event.</p>
 
-        <p>An event is anything that occurs really.  You can have a mouse click event, a mouse over event, a keystroke event, a click event...  Lots of options.  We're going to do a 'change' event on our input box, so when the value changes we'll have an event fire off.</p>
+        <p>An event is anything that occurs really.  You can have a mouse click event, a mouse over event, a keystroke event, a click event...  Lots of options.  We're going to do a 'change' event on our input box, so when the value changes we'll have an event fire off.  For this we will use the "on" function of jquery which takes the event we are listening for and also it takes the function to execute when this event is triggered.  Replace the javascript at the end of your file with the following:</p>
 
-        Show various listen-to commands
+        <code>
+            <p>$("#input").on("change",function(evt){</p>
+            <p>&nbsp;&nbsp;&nbsp;var input = $("#input").val();</p>
+            <p>&nbsp;&nbsp;&nbsp;$("#output").html("&ltp&gtThe Value of Input is " + input + "&lt/p&gt");</p>
+            <p>});</p>
+        </code>
 
-        Show objects
+        <p>Now go ahead and try it and we should be able to get the input when you put something into the box and hit enter / click off of the box.  Nice.  And if you keep changing it then it wil keep updating the HTML.  Now you see that with all the programming power we have and the ease of getting events and using user input we can get a real lot done very quickly.  Lets try a different trigger, we'll put a button in and output on button click.</p>
 
-        Show objects with functions
+        <code>
+            <p>&lthtml&gt</p>
 
-        Show how to use a function to create an object template
+            <p>&lthead&gt</p>
+            <p>&ltscript src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"&gt&lt/script&gt</p>
+            <p>&lt/head&gt</p>
 
-        Discuss 'this' and 'that'
+            <p>&ltbody&gt</p>
+                <p>&nbsp;&nbsp;&nbsp;&ltinput id="input"/&gt</p>
+                <p>&nbsp;&nbsp;&nbsp;&ltdiv id="output"&gt&lt/div&gt</p>
+                <p>&nbsp;&nbsp;&nbsp;&ltbutton id="buton"/&gt</p>
+            <p>&lt/body&gt</p>
+
+            <p>&ltscript&gt</p>
+                <p>&nbsp;&nbsp;&nbsp;$("#button").on("click",function(evt){</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var input = $("#input").val();</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("#output").html("&ltp&gtThe Value of Input is " + input + "&lt/p&gt");</p>
+                <p>&nbsp;&nbsp;&nbsp;});</p>
+            <p>&lt/script&gt</p>
+
+            <p>&lt/html&gt</p>
+        </code>       
+
+        <p>Notice that we put this "evt" as the only argument for the function.  This can be called whatever you want, "e", "event", "bushwick", whatever.  The name you put in there becomes the 'event object' that you are assigned from the event firing.  This object can give you information about what fired the event and other properties of the event.  Here we don't need it because the fact that we are triggering off of the id of the HTML element and the id uniquely identifies the element, but we could trigger instead for any click on a class - which could have multiple HTML elements and in that case we might want to use the event object to narrrow things down more (as an example).  You can do more reading at JQuery on the event object if you want.  There are also lot of events to listen to, and a lot of things you can do - and too many subtlties that I don't know to teach you.  This is also something you'll have to look up.  I've given you a start and you can google the rest.  But before we finish up I'm talking about an event object, but we haven't discussed objects in Javascript yet.  Let's do that.</p>
+
+        <h4>Objects</h4>
+
+        <p>Objects in javascript are nothing but key-value pairs.  That is it.  You don't have to worry about anything more complicated than that.  You can access values in an object with the 'dot' notation.  Let's make an object and access the data in it.</p>
+
+        <code>
+            <p>var myobject = {</p>
+                <p>&nbsp;&nbsp;&nbsp;name : "Bergarius",</p>
+                <p>&nbsp;&nbsp;&nbsp;title : "Lord Solar",</p>
+                <p>&nbsp;&nbsp;&nbsp;religion : "Human Supremist"</p>
+            <p>};</p>
+            <p>$("#output").html("&ltp&gtMy name is " + myobject.title + " " + myobject.name + " " + " and my supreme beliefe is " + myobject.religion + "&lt/p&gt");</p>
+        </code>
+
+        <p>See how we access these elements, we use a dot and then the element name.  Easy.  We can add things in an identical way to assigning a variable too.</p>
+
+         <code>
+            <p>var myobject = {</p>
+                <p>&nbsp;&nbsp;&nbsp;name : "Bergarius",</p>
+                <p>&nbsp;&nbsp;&nbsp;title : "Lord Solar",</p>
+                <p>&nbsp;&nbsp;&nbsp;religion : "Human Supremist"</p>
+            <p>};</p>
+            <p>myobject.degree = "PhD";
+            <p>$("#output").html("&ltp&gtMy degree is " + myobject.degree + "&lt/p&gt");</p>
+        </code>       
+
+        TODO iterate through object
+
+        <p>Nice, it is really easy to access and add new things to it and such.  If you want to declare something as a blank object you would use "var myobject = { };".  Now you might be saying this looks like a map (a hash map, an associative array, a dictionary, whatever you want to call it) and in some senses you'd be right, but this is able to extend beyond what we have right now.  Let's extend it and go deeper by having some more in-depth structure.  We'll use array and we'll even have sub-objects in our object.  All legit.</p>
+
+         <code>
+            <p>var myobject = {</p>
+                <p>&nbsp;&nbsp;&nbsp;name : "Bergarius",</p>
+                <p>&nbsp;&nbsp;&nbsp;title : "Lord Solar",</p>
+                <p>&nbsp;&nbsp;&nbsp;religion : "Human Supremist",</p>
+                <p>&nbsp;&nbsp;&nbsp;tools : ["hammer","flamethrower","hero's grip"],</p>
+                <p>&nbsp;&nbsp;&nbsp;skills : {</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lockpicking : 5,</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;forging : 9,</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;spanish : 1,</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;space-travel : 11</p>
+                <p>&nbsp;&nbsp;&nbsp;},</p>
+                <p>&nbsp;&nbsp;&nbsp;allies : [</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name : "JD Josephsson",</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;honor : 99</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name : "Josh Robertsson",</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class : "Sage"</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+                    <p>&nbsp;&nbsp;&nbsp;]</p>
+            <p>};</p>
+            <p>$("#output").append"&ltp&gtThe level of my lockpicking skill is : " + myobject.skills.lockpicking + "&lt/p&gt");</p>
+            <p>$("#output").append"&ltp&gtOne of my tools is : " + myobject.tools[0] + "&lt/p&gt");</p>
+            <p>$("#output").append"&ltp&gtOne of my allies is : " + myobject.allies[0].name + "&lt/p&gt");</p>
+        </code>           
+
+        <p>Now I don't know about you but this is exactly how I expect all of these objects to behave, I think it is straight forward.  You can nest them as much as you want and the "myobject.tools" array acts exactly like any other array.  The myobject.allies[0] object acts just like any other object.  You can do whatever operations (add properties to them, iterate through them, etc.) that you expect if you made that object on its own.  Really great.  This syntax for constructing the object is known as JSON, which is Javascript Object Notation and it is super portable as every programming language has a way of dealing with it and parsing it in an easy way.  You can express a lot of nested data in the JSON format and indeed all MongoDB does is store JSONs.  When Javascript gets a JSON it automatically converts it to an object for you to use.  It is great.  But there is one more thing with objects we can have, we can put functions as the value instead of data.  This gives us what looks like object-oriented programming.  Watch.</p>
+        
+        <code>
+            <p>var myobject = {</p>
+                <p>&nbsp;&nbsp;&nbsp;name : "Bergarius",</p>
+                <p>&nbsp;&nbsp;&nbsp;title : "Lord Solar",</p>
+                <p>&nbsp;&nbsp;&nbsp;religion : "Human Supremist",</p>
+                <p>&nbsp;&nbsp;&nbsp;dominate : function(){</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("#output").html("&ltp&gtI DO NOT LEAD, I DOMINATE&lt/p&gt");</p>
+                <p>&nbsp;&nbsp;&nbsp;},</p>
+                <p>&nbsp;&nbsp;&nbsp;tools : ["hammer","flamethrower","hero's grip"]</p>
+            <p>};</p>
+            <p>myobject.dominate();</p>
+        </code>        
+
+        <p>So here instead of accessing a piece of data we are actually just executing a chunk of code that we have put there.  This is super powerful now that we can have objects that do things.  Note that you basically make an anonymous function right there which gets called whenever that key is activated.  You can nest these as much as you want to so myobject.functions.dominate() is valid.  You also can put arguments in the function so you could have myobject.dominate("Asgrim") if I want to direct my domination.  There are a lot of ways to extend this but you've seen the pieces already so I encourage you to play around.  I want to just note that at the end of the function there is a comma just like any other element in the object.  It is all just a set of key-value pairs, nice and simple.</p>
+
+        <p>Now what if you wanted to make many duplicates of the same object?  Like in object oriented programming you can 'instantiate' an object multiple times, so if I made a ship I could then instantiate a bunch of them and have a bunch of ships.  Well in javascript you can't do it just like that, javascript is not an object oriented programming language and you can't instantiate objects in that way and you cannot have object inheritance.  There are 'prototype' functions which objects can almost 'inherit' but I won't discuss that because I really don't know about them!  But you don't need them at this point and you can get very far without prototype functions, but you know what to look up now if you want to know more.  If you want to create duplicate objects what we end up having to do is make a function that will return an object.  Let's make that ship object.</p>
+
+        <code>
+            <p>function ship(ship_name,gross_weight,is_submarine){</p>
+            <p>&nbsp;&nbsp;&nbsp;name : name,</p>
+            <p>&nbsp;&nbsp;&nbsp;weight : gross_weight,</p>
+            <p>&nbsp;&nbsp;&nbsp;submarine : is_submarine,</p>
+            <p>&nbsp;&nbsp;&nbsp;load : function(mass){</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.weight = this.weight + mass;
+            <p>&nbsp;&nbsp;&nbsp;},</p>
+            <p>&nbsp;&nbsp;&nbsp;unload : function(mass){</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.weight = this.weight - mass;
+            <p>&nbsp;&nbsp;&nbsp;}</p>
+            <p>}</p>
+            <p></p>
+            <p>var emperor = new ship("agamemnon",1200000,false);</p>
+            <p>var das_boot = new ship("red-october",30000,true);</p>
+            <p>$("#output").append("&ltp&gtShip + " + emperor.name + " has weight " + emperor.weight + "&lt/p&gt");</p>
+            <p>$("#output").append("&ltp&gtShip + " + das_boot.name + " has weight " + das_boot.weight + "&lt/p&gt");</p>
+            <p>emperor.load(550000);</p>
+            <p>das_boot.load(100000);</p>
+            <p>$("#output").append("&ltp&gtShip + " + emperor.name + " has weight " + emperor.weight + "&lt/p&gt");</p>
+            <p>$("#output").append("&ltp&gtShip + " + das_boot.name + " has weight " + das_boot.weight + "&lt/p&gt");</p>
+            <p>emperor.unload(50000);</p>
+            <p>das_boot.uload(30000);</p>
+            <p>$("#output").append("&ltp&gtShip + " + emperor.name + " has weight " + emperor.weight + "&lt/p&gt");</p>
+            <p>$("#output").append("&ltp&gtShip + " + das_boot.name + " has weight " + das_boot.weight + "&lt/p&gt");</p>
+        </code>
+
+        <p>So you notice that we now can create two distinct ships that are objects with the same structure.  In this way we can almost emulate object instantiation with the 'new' command which instantiates an object.  There is more description at this excellent stack-overflow answer <a href="http://stackoverflow.com/questions/1646698/what-is-the-new-keyword-in-javascript">here</a>.  That also has more description on prototype functions and object creation in general but basically you need to make a function that creates the object, that is our lesson!.</p>
+
+        <p>Now what of the "this" var?  The special var "this" refers to the object that it is currently part of, so you can think of it that in 'emperor','this' gets replaced by 'emperor' and in das_boot 'this' becomes 'das_boot'.  We need to use this because we have no idea what the object will actually be named when it is instantiated.  This way we can reference it and other variables within that object (as we do in the load and unload functions to add and remove from the weight property) without knowing what the actual name of the object is.  You might see a variable 'that' later, especially when we get to backbone in section 4 of javascript.  You'll see it in the contect of "var that = this" and that is just a way of holding onto the value of 'this' which may not always return what you expect in more complex nested situations.</p>
+        <p>Ok guys that is enough for part 1 of javascript.  We'll do a part 2 where we integrate with a webserver through AJAX which will allow us to deal with user interactions from both the server end (where our data would be) as well as from the javascript end (where all the user interactions occur).</p>
                
       </div>
 

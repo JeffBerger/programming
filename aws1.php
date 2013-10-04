@@ -6,6 +6,9 @@
       <div class="jumbotron">
         <h1>Setting up an AWS instance for the first time</h1>
         <h3>Here we'll initialize and log into an AWS instance</h3>
+
+        <h3>Pre-reqs : none</h3>
+
         
         <p>First you need to go to <a href="http://aws.amazon.com" target="blank">aws.amazon.com</a> and make an account.  I'll leave this up to you
         	and I am sure you can handle it.  We'll be using the free tier for all of this so don't worry about it costing anything.  They'll
