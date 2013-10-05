@@ -111,7 +111,7 @@
             <p>$("#output").append("&ltp&gtTool 2 " + tools[2] + "&lt/p&gt");</p>  
         </code>
 
-        <p>Well that works nicely, but it is a bit repetative going through that line over and over.  If we had 50 things it would be ridiculous.  But it sounds like the perfect situation for a for loop right?  Ok here we go.</p>
+        <p>Well that works nicely, but it is a bit repetative going through that line over and over.  Notice that we start with element 0, so that the tools array is three elements long and it goes 0 1 2. If we had 50 things it would be ridiculous.  But it sounds like the perfect situation for a for loop right?  Ok here we go.</p>
 
         <code>
             <p>var tools = ["hammer","anvil","penis"];</p>
@@ -160,7 +160,7 @@
             <p>}</p>
         </code>        
 
-        <p>Length is still four, but now we would need to do "tools[7]" to find where we hid the other hammer.  This causes us an issue, luckily there is a special way of calling a for loop which will allow us not to have to worry about that either, it is a for loop that uses the in operator.  This will just pull the elements from the array with each loop and allow us to play with them, in this case we'll just print them out.</p>
+        <p>Length is a lot more, now the length is actually 8, but we go through a bunch of elements which are "undefined".  This causes us an issue, luckily there is a special way of calling a for loop which will allow us not to have to worry about that either, it is a for loop that uses the in operator.  This will just pull the elements from the array with each loop and allow us to play with them, in this case we'll just print them out.</p>
 
         <code>
             <p>var tools = ["hammer","anvil","penis"];</p>
@@ -170,19 +170,19 @@
             <p>}</p>
         </code>
 
-        <p>Super easy for an array and very conveinent.  Notice that "element" has not been declared before, this variable is created and to it is assigned each subsequent integer valuein the array until we are out of elements in the array.  So element actually gets the values "element 0, 1 , 2 ..." and we can pull the value by using the tools[element] selector to get the element.  Now we do not have to know the position of the elements or their length to iterate through them.  You'll see this usage later in objects in the exact same context.  One last thing, what if we want to add somehting contiguously onto the end of an array but we don't want to have to remember where the array end is.  That is easy, we don't need to specify a memory location just use a blank brace and jvaascript will find the end for you.  You can still get some unique behaviors though if you are not careful.  Comtemplate this example.</p>
+        <p>Super easy for an array and very conveinent.  Notice that "element" has not been declared before, this variable is created and to it is assigned each subsequent integer valuein the array until we are out of elements in the array.  So element actually gets the values "element 0, 1 , 2 ..." and we can pull the value by using the tools[element] selector to get the element.  Now we do not have to know the position of the elements or their length to iterate through them.  You'll see this usage later in objects in the exact same context.  One last thing, what if we want to add somehting contiguously onto the end of an array but we don't want to have to remember where the array end is.  That is easy, we don't need to specify a memory location just use the 'push' function and javascript will find the end for you.  You can still get some unique behaviors though if you are not careful.  Comtemplate this example.</p>
 
         <code>
             <p>var tools = ["hammer","anvil","penis"];</p>
-            <p>tools[] = "Sam's hammer";</p>
+            <p>tools.push("Sam's hammer");</p>
             <p>tools[7] = "another Hammer";</p>
-            <p>tools[] = "Hail to the Hammer!";</p>
+            <p>tools.push("Hail to the Hammer!");</p>
             <p>for(element in tools){</p>
             <p>&nbsp;&nbsp;&nbsp;$("#output").append("&ltp&gtTool " + element + " " + tools[element] + "&lt/p&gt");</p>
             <p>}</p>
         </code>
 
-        <p>Notice that the first blank brace adds "Sam's Hammer" to the end of the array, which ends at memory location 2, so it goes to location 3.  Now when we use the second blank brace for "Hail to the Hammer!" we get that we are in memory location 8, because the last element in the array is now in location 7.  The blank brace does not find the next empty memory slot it finds the end of the array and tacks this element onto it.</p>
+        <p>Notice that the first push adds "Sam's Hammer" to the end of the array, which ends at memory location 2, so it goes to location 3.  Now when we use the second push for "Hail to the Hammer!" we get that we are in memory location 8, because the last element in the array is now in location 7.  The blank brace does not find the next empty memory slot it finds the end of the array and tacks this element onto it.  Arrays have a bunch of other functions other than "length" and "push" but you can look those up yourself.</p>
 
         <h2>If statements</h2>
 
@@ -238,7 +238,7 @@
             <p>&nbsp;&nbsp;&nbsp;if(i%3 == 0){</p>
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("#output").append("&ltp&gtLoop number " + i + " is divisible by 3&lt/p&gt");</p>
             <p>&nbsp;&nbsp;&nbsp;}</p>
-            <p>&nbsp;&nbsp;&nbsp;if(i%2 != 0 &amp&amp i%3 != 0{</p>
+            <p>&nbsp;&nbsp;&nbsp;if(i%2 != 0 &amp&amp i%3 != 0){</p>
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("#output").append("&ltp&gtLoop number " + i + " is not divisible by 2 or 3&lt/p&gt");</p>
             <p>&nbsp;&nbsp;&nbsp;}</p>
             <p>}</p>
@@ -254,10 +254,10 @@
             <p>//&nbsp;&nbsp;&nbsp;if(i%3 == 0){</p>
             <p>//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("#output").append("&ltp&gtLoop number " + i + " is divisible by 3&lt/p&gt");</p>
             <p>//&nbsp;&nbsp;&nbsp;}</p>
-            <p>/*&nbsp;&nbsp;&nbsp;if(i%2 != 0 &amp&amp i%3 != 0{</p>
+            <p>/*&nbsp;&nbsp;&nbsp;if(i%2 != 0 &amp&amp i%3 != 0){</p>
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("#output").append("&ltp&gtLoop number " + i + " is not divisible by 2 or 3&lt/p&gt");</p>
-            <p>&nbsp;&nbsp;&nbsp;}</p>
-            <p>}*/</p>
+            <p>&nbsp;&nbsp;&nbsp;}*/</p>
+            <p>}</p>
         </code>   
 
         <p>We are using the inline comment and the block comment.  The // comments everything at that point and past in that line (you can have comments at the end of a line to give an explanation to that line of code) and /* comments everything from that point onwards until it reaches */.  Lets talk about functions before we go further.</p>
@@ -274,14 +274,13 @@
             <p></p>
             <p>function printten(){</p>
             <p>&nbsp;&nbsp;&nbsp;for(var i = 0;i&lt10;i++){ </p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(i%2 == 0){</p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("#output").append("&ltp&gtLoop number " + i + " is even&lt/p&gt");</p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("#output").append("&ltp&gtLoop number " + i + "&lt/p&gt");</p>
             <p>&nbsp;&nbsp;&nbsp;}</p>
             <p>}</p>
         </code>         
 
-        <p>So take a look, you'll now print two 10 line sets and all you have to do is call printten.  This means we can make general functions that do our tasks and we can just call the function.  Notice I have empty parentheses after the function call.  You need those, if I just write "printten" that is a reference to the function, not a call to execute it.  We'll use references to functions in a moment.  The parentheses there hold what are known as parameters for the function.  The function doesn't know anything about external variables so we have to pass it variables.  Ok so that was a lot to take in, but lets break it down.  First, what do I mean that the function doesn't know about external variables?  If I declare a variable j outside the function and there is a variable j inside the function the function does not know about the variable j outside the function.  Like this.</p>
+        <p>So take a look, you'll now print two 10 line sets and all you have to do is call printten.  This means we can make general functions that do our tasks and we can just call the function.  It is important to realize that I have declared the function after I call it and things worked ok.  This is not like a variable, if I declare a variable after I use it things will not work.  Functions are special and can be declared before or after the point that they are used.</p>
+        <p>Notice also I have empty parentheses after the function call.  You need those, if I just write "printten" that is a reference to the function, not a call to execute it.  We'll use references to functions in a moment.  The parentheses there hold what are known as parameters for the function.  The function doesn't know anything about external variables so we have to pass it variables.  Ok so that was a lot to take in, but lets break it down.  First, what do I mean that the function doesn't know about external variables?  If I declare a variable j outside the function and there is a variable j inside the function the function does not know about the variable j outside the function.  Like this.</p>
 
         <code>
             <p>var i = 30;</p>
@@ -291,9 +290,7 @@
             <p></p>
             <p>function printten(){</p>
             <p>&nbsp;&nbsp;&nbsp;for(var i = 0;i&lt10;i++){ </p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(i%2 == 0){</p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("#output").append("&ltp&gtLoop number i is " + i + " is even&lt/p&gt");</p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("#output").append("&ltp&gtLoop number " + i + "&lt/p&gt");</p>
             <p>&nbsp;&nbsp;&nbsp;}</p>
             <p>}</p>
         </code>          
@@ -306,9 +303,7 @@
             <p></p>
             <p>function printn(n){</p>
             <p>&nbsp;&nbsp;&nbsp;for(var i = 0;i&ltn;i++){ </p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(i%2 == 0){</p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("#output").append("&ltp&gtLoop number i is " + i + " is even&lt/p&gt");</p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("#output").append("&ltp&gtLoop number " + i + "&lt/p&gt");</p>
             <p>&nbsp;&nbsp;&nbsp;}</p>
             <p>}</p>
         </code>       
@@ -326,9 +321,7 @@
             <p></p>
             <p>function printn(n){</p>
             <p>&nbsp;&nbsp;&nbsp;for(var i = 0;i&ltn;i++){ </p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(i%2 == 0){</p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("#output").append("&ltp&gtLoop number i is " + i + " is even&lt/p&gt");</p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("#output").append("&ltp&gtLoop number " + i + "&lt/p&gt");</p>
             <p>&nbsp;&nbsp;&nbsp;}</p>
             <p>}</p>
         </code>    
@@ -343,9 +336,7 @@
             <p>var i = 5;</p>
             <p>printpyramid(i,function(n){</p>
             <p>&nbsp;&nbsp;&nbsp;for(var i = 0;i&ltn;i++){ </p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(i%2 == 0){</p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("#output").append("&ltp&gtLoop number i is " + i + " is even&lt/p&gt");</p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("#output").append("&ltp&gtLoop number " + i + "&lt/p&gt");</p>
             <p>&nbsp;&nbsp;&nbsp;}</p>
             <p>});</p>
             <p></p>
