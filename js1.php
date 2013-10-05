@@ -318,7 +318,7 @@
             <p>&nbsp;&nbsp;&nbsp;for(var i = 0;i&ltn;i++){ </p>
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inner_function(i);
             <p>&nbsp;&nbsp;&nbsp;}</p>
-            <p></p>
+            <p>}</p>
             <p>function printn(n){</p>
             <p>&nbsp;&nbsp;&nbsp;for(var i = 0;i&ltn;i++){ </p>
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("#output").append("&ltp&gtLoop number " + i + "&lt/p&gt");</p>
@@ -344,7 +344,7 @@
             <p>&nbsp;&nbsp;&nbsp;for(var i = 0;i&ltn;i++){ </p>
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inner_function(i);
             <p>&nbsp;&nbsp;&nbsp;}</p>
-            <p></p>
+            <p>}</p>
         </code>
 
         <p>Note how we construct the function in place, this is how we can create an anonymous function for specific events (which we'll see later) and AJAX calls (Javascript lesson 2).  We can declare a function for it and reference it or we can use an anonymous function, both are valid but you should be able to do both and comfortable with seeing either.</p>
@@ -398,7 +398,7 @@
             <p>&ltbody&gt</p>
                 <p>&nbsp;&nbsp;&nbsp;&ltinput id="input"/&gt</p>
                 <p>&nbsp;&nbsp;&nbsp;&ltdiv id="output"&gt&lt/div&gt</p>
-                <p>&nbsp;&nbsp;&nbsp;&ltbutton id="buton"/&gt</p>
+                <p>&nbsp;&nbsp;&nbsp;&ltbutton id="button"&gtUPDATE&lt/p&gt</p>
             <p>&lt/body&gt</p>
 
             <p>&ltscript&gt</p>
