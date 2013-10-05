@@ -118,7 +118,16 @@
             <p>}</p>
         </code>
 
-        <p>Ok works great.  Not done yet, there is a special for loop that we can use with an array where we don't even have to specify an iterator or anything, it is called a foreach loop.  We won't go over it though because you'll need to know more about functions before we do, and by then I figure you can look up a foreach loop in javascript if you really want to know. Left as an exercise to the reader, woo!</p>
+        <p>Ok works great.  Not done yet, there is a special for loop that we can use with an array where we don't even have to specify an iterator or anything, it is a for loop that uses the in operator.  This will just pull the elements from the array with each loop and allow us to play with them, in this case we'll just print them out.</p>
+
+        <code>
+            <p>var tools = ["hammer","anvil","penis"];</p>
+            <p>for(element in tools){</p>
+            <p>&nbsp;&nbsp;&nbsp;$("#output").append("&ltp&gtTool " + element + "&lt/p&gt");</p>
+            <p>}</p>
+        </code>
+
+        <p>Super easy for an array and very conveinent.  Notice that "element" has not been declared before, this variable is created and to it is assigned each subsequent value in the array until we are out of elements in the array.</p>
 
         <h4>If statements</h4>
 
@@ -379,13 +388,27 @@
                 <p>&nbsp;&nbsp;&nbsp;title : "Lord Solar",</p>
                 <p>&nbsp;&nbsp;&nbsp;religion : "Human Supremist"</p>
             <p>};</p>
-            <p>myobject.degree = "PhD";
+            <p>myobject.degree = "PhD";</p>
             <p>$("#output").html("&ltp&gtMy degree is " + myobject.degree + "&lt/p&gt");</p>
         </code>       
 
-        TODO iterate through object
+        <p>What if we want to iterate through this like an array and get the key-value pairs?  Well we can do that with a for loop using the in operator just like arrays.</p>
 
-        <p>Nice, it is really easy to access and add new things to it and such.  If you want to declare something as a blank object you would use "var myobject = { };".  Now you might be saying this looks like a map (a hash map, an associative array, a dictionary, whatever you want to call it) and in some senses you'd be right, but this is able to extend beyond what we have right now.  Let's extend it and go deeper by having some more in-depth structure.  We'll use array and we'll even have sub-objects in our object.  All legit.</p>
+         <code>
+            <p>var myobject = {</p>
+                <p>&nbsp;&nbsp;&nbsp;name : "Bergarius",</p>
+                <p>&nbsp;&nbsp;&nbsp;title : "Lord Solar",</p>
+                <p>&nbsp;&nbsp;&nbsp;religion : "Human Supremist"</p>
+            <p>};</p>
+            <p>myobject.degree = "PhD";</p>
+            <p>for(key in myobject){</p>
+            <p>&nbsp;&nbsp;&nbsp;$("#output").append("&ltp&gtKEY " + key + " VALUE " + myobject[key] + "&lt/p&gt");
+            <p>}</p>
+        </code>       
+
+        <p>First, the 'key' variable is not special, it is an unused variable that the loop will assign the key values of the key value pairs in the obkect.  Second, notice that we have another way of accessing elements in an object.  In fact this is vital if you are going to use a variable as using the dot notation with a variable will not work.  You can use brackets, exactly as you would an array, but instead of using a number to represent the position of the element you use its key name.  So myobject["name"] could return Bergarius the same as myobject.name can.  You can think of an array like being an object by the keys are automatically assigned as 0,1,2,3...</p>
+
+        <p>Nice, it is really easy to access, add new things to it and iterate through it.  If you want to declare something as a blank object you would use "var myobject = { };".  Now you might be saying this looks like a map (a hash map, an associative array, a dictionary, whatever you want to call it) and in some senses you'd be right, but this is able to extend beyond what we have right now.  Let's extend it and go deeper by having some more in-depth structure.  We'll use array and we'll even have sub-objects in our object.  All legit.</p>
 
          <code>
             <p>var myobject = {</p>
