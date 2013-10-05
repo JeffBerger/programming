@@ -5,9 +5,10 @@
 
       <div class="jumbotron">
         <h1>Javascript pt1</h1>
-        <h3>An introduction to javascript and programming in general</h3>
-
+        <h3>An introduction to javascript and programming in general.</h3>
         <h3>Pre-reqs : HTML/CSS</h3>
+
+        <p>If you've never programmed before, this might be a good start.  If you have, a bunch of this might be boring but it should have some little tidbits inside which will be worthwhile.  Especially if htis is new to you I suggest you take the time out and actually type the commands into your test file rather than copying and pasting my code and seeing the outcome.  You'll remember more of it, the subtlties will be more apparent to you if you are typing it, and you won't rely so much on coming back and copying/pasting lines of code later when you want to make your own page.</p>
 
         <h2>Intro</h2>
 
@@ -398,7 +399,7 @@
             <p>&ltbody&gt</p>
                 <p>&nbsp;&nbsp;&nbsp;&ltinput id="input"/&gt</p>
                 <p>&nbsp;&nbsp;&nbsp;&ltdiv id="output"&gt&lt/div&gt</p>
-                <p>&nbsp;&nbsp;&nbsp;&ltbutton id="button"&gtUPDATE&lt/p&gt</p>
+                <p>&nbsp;&nbsp;&nbsp;&ltbutton id="button"&gtUPDATE&lt/button&gt</p>
             <p>&lt/body&gt</p>
 
             <p>&ltscript&gt</p>
@@ -423,7 +424,7 @@
                 <p>&nbsp;&nbsp;&nbsp;title : "Lord Solar",</p>
                 <p>&nbsp;&nbsp;&nbsp;religion : "Human Supremist"</p>
             <p>};</p>
-            <p>$("#output").html("&ltp&gtMy name is " + myobject.title + " " + myobject.name + " " + " and my supreme beliefe is " + myobject.religion + "&lt/p&gt");</p>
+            <p>$("#output").html("&ltp&gtMy name is " + myobject.title + " " + myobject.name + " " + " and my religion is " + myobject.religion + "&lt/p&gt");</p>
         </code>
 
         <p>See how we access these elements, we use a dot and then the element name.  Easy.  We can add things in an identical way to assigning a variable too.</p>
@@ -466,7 +467,7 @@
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lockpicking : 5,</p>
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;forging : 9,</p>
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;spanish : 1,</p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;space-travel : 11</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;spacetravel : 11</p>
                 <p>&nbsp;&nbsp;&nbsp;},</p>
                 <p>&nbsp;&nbsp;&nbsp;allies : [</p>
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</p>
@@ -479,9 +480,9 @@
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
                     <p>&nbsp;&nbsp;&nbsp;]</p>
             <p>};</p>
-            <p>$("#output").append"&ltp&gtThe level of my lockpicking skill is : " + myobject.skills.lockpicking + "&lt/p&gt");</p>
-            <p>$("#output").append"&ltp&gtOne of my tools is : " + myobject.tools[0] + "&lt/p&gt");</p>
-            <p>$("#output").append"&ltp&gtOne of my allies is : " + myobject.allies[0].name + "&lt/p&gt");</p>
+            <p>$("#output").append("&ltp&gtThe level of my lockpicking skill is : " + myobject.skills.lockpicking + "&lt/p&gt");</p>
+            <p>$("#output").append("&ltp&gtOne of my tools is : " + myobject.tools[0] + "&lt/p&gt");</p>
+            <p>$("#output").append("&ltp&gtOne of my allies is : " + myobject.allies[0].name + "&lt/p&gt");</p>
         </code>           
 
         <p>Now I don't know about you but this is exactly how I expect all of these objects to behave, I think it is straight forward.  You can nest them as much as you want and the "myobject.tools" array acts exactly like any other array.  The myobject.allies[0] object acts just like any other object.  You can do whatever operations (add properties to them, iterate through them, etc.) that you expect if you made that object on its own.  Really great.  This syntax for constructing the object is known as JSON, which is Javascript Object Notation and it is super portable as every programming language has a way of dealing with it and parsing it in an easy way.  You can express a lot of nested data in the JSON format and indeed all MongoDB does is store JSONs.  When Javascript gets a JSON it automatically converts it to an object for you to use.  It is great.  But there is one more thing with objects we can have, we can put functions as the value instead of data.  This gives us what looks like object-oriented programming.  Watch.</p>
@@ -505,13 +506,13 @@
 
         <code>
             <p>function ship(ship_name,gross_weight,is_submarine){</p>
-            <p>&nbsp;&nbsp;&nbsp;name : name,</p>
-            <p>&nbsp;&nbsp;&nbsp;weight : gross_weight,</p>
-            <p>&nbsp;&nbsp;&nbsp;submarine : is_submarine,</p>
-            <p>&nbsp;&nbsp;&nbsp;load : function(mass){</p>
+            <p>&nbsp;&nbsp;&nbsp;this.name = name;</p>
+            <p>&nbsp;&nbsp;&nbsp;this.weight = gross_weight;</p>
+            <p>&nbsp;&nbsp;&nbsp;this.submarine = is_submarine;</p>
+            <p>&nbsp;&nbsp;&nbsp;this.load = function(mass){</p>
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.weight = this.weight + mass;
             <p>&nbsp;&nbsp;&nbsp;},</p>
-            <p>&nbsp;&nbsp;&nbsp;unload : function(mass){</p>
+            <p>&nbsp;&nbsp;&nbsp;this.unload = function(mass){</p>
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.weight = this.weight - mass;
             <p>&nbsp;&nbsp;&nbsp;}</p>
             <p>}</p>
@@ -525,15 +526,20 @@
             <p>$("#output").append("&ltp&gtShip + " + emperor.name + " has weight " + emperor.weight + "&lt/p&gt");</p>
             <p>$("#output").append("&ltp&gtShip + " + das_boot.name + " has weight " + das_boot.weight + "&lt/p&gt");</p>
             <p>emperor.unload(50000);</p>
-            <p>das_boot.uload(30000);</p>
+            <p>das_boot.unload(30000);</p>
             <p>$("#output").append("&ltp&gtShip + " + emperor.name + " has weight " + emperor.weight + "&lt/p&gt");</p>
             <p>$("#output").append("&ltp&gtShip + " + das_boot.name + " has weight " + das_boot.weight + "&lt/p&gt");</p>
         </code>
 
         <p>So you notice that we now can create two distinct ships that are objects with the same structure.  In this way we can almost emulate object instantiation with the 'new' command which instantiates an object.  There is more description at this excellent stack-overflow answer <a href="http://stackoverflow.com/questions/1646698/what-is-the-new-keyword-in-javascript">here</a>.  That also has more description on prototype functions and object creation in general but basically you need to make a function that creates the object, that is our lesson!.</p>
 
-        <p>Now what of the "this" var?  The special var "this" refers to the object that it is currently part of, so you can think of it that in 'emperor','this' gets replaced by 'emperor' and in das_boot 'this' becomes 'das_boot'.  We need to use this because we have no idea what the object will actually be named when it is instantiated.  This way we can reference it and other variables within that object (as we do in the load and unload functions to add and remove from the weight property) without knowing what the actual name of the object is.  You might see a variable 'that' later, especially when we get to backbone in section 4 of javascript.  You'll see it in the contect of "var that = this" and that is just a way of holding onto the value of 'this' which may not always return what you expect in more complex nested situations.</p>
-        <p>Ok guys that is enough for part 1 of javascript.  We'll do a part 2 where we integrate with a webserver through AJAX which will allow us to deal with user interactions from both the server end (where our data would be) as well as from the javascript end (where all the user interactions occur).</p>
+        <p>Now what of the "this" var?  The special var "this" refers to the object that it is currently part of, so you can think of it that in 'emperor','this' gets replaced by 'emperor' and in das_boot 'this' becomes 'das_boot'.  We need to use this because we have no idea what the object will actually be named when it is instantiated.  This way we can reference it and other variables within that object (as we do in the load and unload functions to add and remove from the weight property) without knowing what the actual name of the object is.</p>
+
+        <p>Notice we don't use 'var' when declaring the variables either.  What you want to think of is that the function is executing a bunch of commands that will add to the current object various properties.  If you look at the example just before we added properties by having myobject.NEW_PROPERTY = VALUE; This is what our function is doing.  New will create a blank object and then we will be adding a bunch of properties to that object with that syntax.  As we don't know the name of the object the first thing we use is "this", but in neither of them do we use "var".  A bit confusing I know but you'll get more used to it.</p>
+
+        <p>You might see a variable 'that' later, especially when we get to backbone in section 4 of javascript.  You'll see it in the contect of "var that = this" and that is just a way of holding onto the value of 'this' which may not always return what you expect in more complex nested situations.</p>
+
+        <p>Ok guys that is enough for part 1 of javascript.  We'll do a part 2 where we integrate with a webserver through AJAX which will allow us to deal with user interactions from both the server end (where our data would be) as well as from the javascript end (where all the user interactions occur).  I encourage you to start messing about on your own page and adding more complex functionality into it, you can now make a calculator of any sort or if you go a bit more in depth with events you can make a basic game (tic tac toe for example is a doable task).</p>
                
       </div>
 
