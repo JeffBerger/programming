@@ -7,7 +7,7 @@
         <h1>GIT</h1>
         <h3>We are going to setup GIT, setup GITHUB, and learn to use it a bit.</h3>
         
-        <h3>Pre-reqs : None (for most of it), Apache(for all of it)</h3>
+        <h3>Pre-reqs : None (for most of it), <a href="../apache1.php">Apache</a>(for all of it)</h3>
                
         <h3>What is GIT?</h3>
 

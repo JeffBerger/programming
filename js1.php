@@ -6,9 +6,9 @@
       <div class="jumbotron">
         <h1>Javascript pt1</h1>
         <h3>An introduction to javascript and programming in general.</h3>
-        <h3>Pre-reqs : HTML/CSS</h3>
+        <h3>Pre-reqs : <a href="../html1.php">HTML/CSS</a></h3>
 
-        <p>If you've never programmed before, this might be a good start.  If you have, a bunch of this might be boring but it should have some little tidbits inside which will be worthwhile.  Especially if htis is new to you I suggest you take the time out and actually type the commands into your test file rather than copying and pasting my code and seeing the outcome.  You'll remember more of it, the subtlties will be more apparent to you if you are typing it, and you won't rely so much on coming back and copying/pasting lines of code later when you want to make your own page.</p>
+        <p>If you've never programmed before, this might be a good start.  If you have, a bunch of this might be boring but it should have some little tidbits inside which will be worthwhile.  Especially if this is new to you I suggest you take the time out and actually type the commands into your test file rather than copying and pasting my code and seeing the outcome.  You'll remember more of it, the subtlties will be more apparent to you if you are typing it, and you won't rely so much on coming back and copying/pasting lines of code later when you want to make your own page.</p>
 
         <h2>Intro</h2>
 

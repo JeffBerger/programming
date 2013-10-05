@@ -7,7 +7,7 @@
         <h1>MongoDB setup and use 1 : the basics</h1>
         <h3>Here we'll install and construct a mongo server from scratch on AWS and play around a bit with it</h3>
         
-        <h3>Pre-reqs : MySQL</h3>
+        <h3>Pre-reqs : <a href="../mysql.php">MySQL</a></h3>
 
         <p>Ok so fire up and log into your amazon instance and we'll put mongo on it.  First we need to create a repository file so that linux
  knows where to look for the files when we call yum to install.  To do this we'll create a mongo repo file with vi using the command </p>

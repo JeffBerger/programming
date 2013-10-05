@@ -5,6 +5,8 @@
 
       <div class="jumbotron">
         <h1>Basic HTML and CSS</h1>
+        <h3>Pre-reqs : none</h3>
+
         
         <p>I'm not going to go through a whole lot of HTML and CSS here just a description of what they are and some practices with them.  I'll direct you to the W3 schools <a href="http://www.w3schools.com/html/default.asp" target="blank">html</a> and <a href="http://www.w3schools.com/css/default.asp">CSS</a> tutorials for a more complete coverage.  I also won't be building this tutorial like the others, a follow-my-lead website with HTML and CSS, you've already probably used some in some other lesson and you'll be using it constantly through other lessons so that will be enough practice for you.</p>
 
