@@ -1,0 +1,132 @@
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<select id="dropbox">
+  <option value="get">Get User</option>
+  <option value="create">Create User</option>
+  <option value="update">Update User</option>
+  <option value="delete">Delete User</option>
+</select>
+
+<div id="get" class="opt">
+	<p>Choose a user to get information on : </p>
+	<input type="text" id="user_id_get">user id</input>
+	<button id="btn_get">Get user</button>
+</div>
+
+<div id="delete" class="opt">
+	<p>Choose a user to delete on : </p>
+	<input type="text" id="user_id_delete">user id</input>
+	<button id="btn_delete">Delete user</button>
+</div>
+
+<div id="create" class="opt">
+	<p>Insert a new user : </p>
+	<input type="text" id="user_email">user email</input>
+	<input type="text" id="user_pword">user password</input>
+	<input type="text" id="user_title">user title</input>
+	<button id="btn_create">Create User</button>
+</div>
+
+<div id="update" class="opt">
+	<p>Insert a modify user : </p>
+	<input type="text" id="user_id_upd">user id</input>
+	<input type="text" id="user_email_upd">user email</input>
+	<input type="text" id="user_pword_upd">user password</input>
+	<input type="text" id="user_title_upd">user title</input>
+	<button id="btn_update">Update User</button>
+</div>
+
+<div id="output"></div>
+
+<script>
+	$(".opt").hide();
+	$("#get").show();
+
+	$("#dropbox").change(function(){
+		$("#dropbox option:selected" ).each(function() {
+		    $(".opt").hide();
+		    $("#" + this.value).show();
+		});
+	});
+
+	$("#btn_update").click(function(){
+		if($("#user_id_upd").val() == ""){
+			alert("You must put a user id into the box");
+		}else{
+			var opts = {};
+			if($("#user_email_upd").val() != ""){
+				opts.email = $("#user_email_upd").val();
+			}
+			if($("#user_pword_upd").val() != ""){
+				opts.pword = $("#user_pword_upd").val();
+			}
+			if($("#user_title_upd").val() != ""){
+				opts.title = $("#user_title_upd").val();
+			}
+			$.ajax({
+			  url: '',
+			  type: 'PUT',
+			  data: opts,
+			  success: function(data) {
+			    $("#output").html("User updates");
+			  }
+			});
+
+
+		}
+
+	});
+
+	$("#btn_create").click(function(){
+		var opts = {};
+		if($("#user_email_upd").val() == "" || $("#user_title_upd").val() == "" || $("#user_pword_upd").val() == ""){
+			alert("Please fill out all boxes");
+		}else{
+
+			opts.email = $("#user_email").val();
+			opts.pword = $("#user_pword").val();
+			opts.title = $("#user_title").val();
+
+			$.ajax({
+			  url: '',
+			  type: 'POST',
+			  data: opts,
+			  success: function(data) {
+			    $("#output").html("User created with id " + data.id);
+			  }
+			});
+		}
+	});
+
+	$("#btn_delete").click(function(){
+		if($("#user_id_delete").val() == ""){
+			alert("Please fill out all boxes");
+		}else{
+
+			$.ajax({
+			  url: '',
+			  type: 'DELETE',
+			  success: function(data) {
+			    $("#output").html("User deleted");
+			  }
+			});
+		}
+
+	});
+
+	$("#btn_get").click(function(){
+		if($("#user_id_get").val() == ""){
+			alert("Please fill out all boxes");
+		}else{
+
+			$.ajax({
+			  url: '',
+			  type: 'GET',
+			  success: function(data) {
+			    $("#output").html("User email : " + data.email + " User title : " + data.title);
+			  }
+			});
+		}
+	});
+
+</script>

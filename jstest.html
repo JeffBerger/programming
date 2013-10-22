@@ -1,0 +1,81 @@
+<html>
+
+<head>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.1/underscore-min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
+
+	<script>
+		window.Test = {
+			Views : { },
+			Models : { }
+		};
+	</script>
+
+</head>
+
+<body>
+
+	<p>Choose a user ID to investigate</p>
+
+	<input type="number" name="id" id="number" min="13286"/>
+
+	<div id="output"></div>
+
+</body>
+
+<script>
+
+// var Wallet = {
+// 	name : "This Walletl",
+// 	func : "Holding our cash",
+// 	money : 200,
+// 	makemoney : function(cash){
+// 		this.money = this.money + cash;
+// 	},
+// 	payrent : function(){
+// 		this.money = this.money - 750;
+// 	}
+// };
+
+function Wallet(){
+	this.name = "This Walletl";
+	this.func = "Holding our cash";
+	this.money = 200;
+	this.makemoney = function(cash){
+		this.money = this.money + cash;
+	};
+	this.payrent = function(){
+		this.money = this.money - 750;
+	};
+}
+
+var KatsWallet = new Wallet();
+var JoshsWallet = new Wallet();
+
+$("#output").append("<p>Curently Wallet has " + 0 + " dollars Kat has " + KatsWallet.money + " and Josh has " + JoshsWallet.money + "</p>");
+KatsWallet.makemoney(1500);
+JoshsWallet.makemoney(12);
+$("#output").append("<p>Curently Wallet has " +0 + " dollars Kat has " + KatsWallet.money + " and Josh has " + JoshsWallet.money + "</p>");
+KatsWallet.payrent();
+JoshsWallet.payrent();
+$("#output").append("<p>Curently Wallet has " + 0 + " dollars Kat has " + KatsWallet.money + " and Josh has " + JoshsWallet.money + "</p>");
+
+// $("#number").change(function(){
+
+// 	var idnumber = $("#number").val();
+
+// 	$.get("../api/user/user_info/"+idnumber,function(data){
+
+// 		var username = data.username;
+// 		var email = data.email;
+
+// 		$("#output").html("The user's name is " + username + " and their email is " + email);
+
+// 	});
+
+// });
+</script>
+
+</html>

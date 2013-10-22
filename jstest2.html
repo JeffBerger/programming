@@ -1,0 +1,69 @@
+<html>
+
+<head>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+   <input id="input"/>
+
+   <div id="output"></div>
+
+   <button id="button">UPDATE</button>
+
+</body>
+
+<script>
+
+function ship(ship_name,gross_weight,is_submarine){
+
+   var name = ship_name;
+
+   var weight = gross_weight;
+
+   var submarine = is_submarine;
+
+   var load = function(mass){
+
+      this.weight = this.weight + mass;
+
+   }
+
+   var unload = function(mass){
+
+      this.weight = this.weight - mass;
+
+   }
+
+}
+
+var emperor = new ship("agamemnon",1200000,false);
+
+var das_boot = new ship("red-october",30000,true);
+
+$("#output").append("<p>Ship + " + emperor.name + " has weight " + emperor.weight + "</p>");
+
+$("#output").append("<p>Ship + " + das_boot.name + " has weight " + das_boot.weight + "</p>");
+
+emperor.load(550000);
+
+das_boot.load(100000);
+
+$("#output").append("<p>Ship + " + emperor.name + " has weight " + emperor.weight + "</p>");
+
+$("#output").append("<p>Ship + " + das_boot.name + " has weight " + das_boot.weight + "</p>");
+
+emperor.unload(50000);
+
+das_boot.unload(30000);
+
+$("#output").append("<p>Ship + " + emperor.name + " has weight " + emperor.weight + "</p>");
+
+$("#output").append("<p>Ship + " + das_boot.name + " has weight " + das_boot.weight + "</p>");
+
+</script>
+
+</html>
