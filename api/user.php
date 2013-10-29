@@ -1,6 +1,6 @@
 <?php
 
-$connection = mysql_connect('localhost','root','rezound');
+$connection = mysql_connect('localhost','root','pword');
 
 mysql_select_db('api');
 
