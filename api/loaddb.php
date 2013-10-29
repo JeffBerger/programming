@@ -15,9 +15,9 @@ for($i = 0;$i<100;$i++){
 	}
 	$pword = "Password".$i;
 
-	$query = "INSERT INTO users VALUES $email,$title,$pword";
+	$query = "INSERT INTO users VALUES $i,$email,$title,$pword";
 	echo $query;
-	
+
 	mysql_query($query);
 }
 
