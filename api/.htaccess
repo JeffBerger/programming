@@ -1,2 +1,2 @@
 RewriteEngine On
-RewriteRule ^programming/api/user/(.*) user.php?id=$1
+RewriteRule ^programming/api/user/(.*) programming/api/user.php?id=$1
