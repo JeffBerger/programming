@@ -83,8 +83,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 	//We recieved an ID and are to delete this from our database
 	$id = $_GET["id"];
 
-	echo "Delete user $id";
-
 	$query = "DELETE FROM users WHERE id=$id";
 	mysql_query($query);
 
