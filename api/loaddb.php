@@ -1,8 +1,8 @@
 <?php
 
-$connection = mysql_connect('localhost','root','rezound');
+$connection = mysql_connect('localhost','root','pword');
 
-mysql_select_db('tutorial');
+mysql_select_db('api');
 
 for($i = 0;$i<100;$i++){
 	$email="Jeff" . $i . "@imperial.emp";

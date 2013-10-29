@@ -2,7 +2,7 @@
 
 $connection = mysql_connect('localhost','root','rezound');
 
-mysql_select_db('tutorial');
+mysql_select_db('api');
 
 //First find out what kind of request it is
 
